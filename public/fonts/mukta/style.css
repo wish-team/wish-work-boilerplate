@@ -1,0 +1,25 @@
+@font-face {
+    font-family: Mukta;
+    font-weight: 900;
+    src: url('./Mukta-ExtraBold.ttf');
+}
+
+@font-face {
+	font-family: Mukta;
+	font-style: normal;
+	font-weight: bold;
+	src: url('./Mukta-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Mukta;
+    font-style: normal;
+    font-weight: normal;
+    src: url('./Mukta-Regular.ttf');
+}
+
+@font-face {
+    font-family: Mukta;
+    font-weight: 200;
+    src: url('./Mukta-Light.ttf');
+}

@@ -1,0 +1,234 @@
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-BlackItalic.eot');
+    src: local('Ridley Grotesk Black Italic'), local('RidleyGrotesk-BlackItalic'),
+        url('RidleyGrotesk-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-BlackItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-BlackItalic.woff') format('woff'),
+        url('RidleyGrotesk-BlackItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-BoldItalic.eot');
+    src: local('Ridley Grotesk Bold Italic'), local('RidleyGrotesk-BoldItalic'),
+        url('RidleyGrotesk-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-BoldItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-BoldItalic.woff') format('woff'),
+        url('RidleyGrotesk-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Black.eot');
+    src: local('Ridley Grotesk Black'), local('RidleyGrotesk-Black'),
+        url('RidleyGrotesk-Black.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Black.woff2') format('woff2'),
+        url('RidleyGrotesk-Black.woff') format('woff'),
+        url('RidleyGrotesk-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Regular.eot');
+    src: local('Ridley Grotesk'), local('RidleyGrotesk-Regular'),
+        url('RidleyGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Regular.woff2') format('woff2'),
+        url('RidleyGrotesk-Regular.woff') format('woff'),
+        url('RidleyGrotesk-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-UltraLight.eot');
+    src: local('Ridley Grotesk Ultra Light'), local('RidleyGrotesk-UltraLight'),
+        url('RidleyGrotesk-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-UltraLight.woff2') format('woff2'),
+        url('RidleyGrotesk-UltraLight.woff') format('woff'),
+        url('RidleyGrotesk-UltraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-SemiBoldItalic.eot');
+    src: local('Ridley Grotesk Semi Bold Italic'), local('RidleyGrotesk-SemiBoldItalic'),
+        url('RidleyGrotesk-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-SemiBoldItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-SemiBoldItalic.woff') format('woff'),
+        url('RidleyGrotesk-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Italic.eot');
+    src: local('Ridley Grotesk Italic'), local('RidleyGrotesk-Italic'),
+        url('RidleyGrotesk-Italic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Italic.woff2') format('woff2'),
+        url('RidleyGrotesk-Italic.woff') format('woff'),
+        url('RidleyGrotesk-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-UltraLightItalic.eot');
+    src: local('Ridley Grotesk Ultra Light Italic'), local('RidleyGrotesk-UltraLightItalic'),
+        url('RidleyGrotesk-UltraLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-UltraLightItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-UltraLightItalic.woff') format('woff'),
+        url('RidleyGrotesk-UltraLightItalic.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-LightItalic.eot');
+    src: local('Ridley Grotesk Light Italic'), local('RidleyGrotesk-LightItalic'),
+        url('RidleyGrotesk-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-LightItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-LightItalic.woff') format('woff'),
+        url('RidleyGrotesk-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-MediumItalic.eot');
+    src: local('Ridley Grotesk Medium Italic'), local('RidleyGrotesk-MediumItalic'),
+        url('RidleyGrotesk-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-MediumItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-MediumItalic.woff') format('woff'),
+        url('RidleyGrotesk-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-ExtraBoldItalic.eot');
+    src: local('Ridley Grotesk Extra Bold Italic'), local('RidleyGrotesk-ExtraBoldItalic'),
+        url('RidleyGrotesk-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-ExtraBoldItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-ExtraBoldItalic.woff') format('woff'),
+        url('RidleyGrotesk-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Bold.eot');
+    src: local('Ridley Grotesk Bold'), local('RidleyGrotesk-Bold'),
+        url('RidleyGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Bold.woff2') format('woff2'),
+        url('RidleyGrotesk-Bold.woff') format('woff'),
+        url('RidleyGrotesk-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Thin.eot');
+    src: local('Ridley Grotesk Thin'), local('RidleyGrotesk-Thin'),
+        url('RidleyGrotesk-Thin.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Thin.woff2') format('woff2'),
+        url('RidleyGrotesk-Thin.woff') format('woff'),
+        url('RidleyGrotesk-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Light.eot');
+    src: local('Ridley Grotesk Light'), local('RidleyGrotesk-Light'),
+        url('RidleyGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Light.woff2') format('woff2'),
+        url('RidleyGrotesk-Light.woff') format('woff'),
+        url('RidleyGrotesk-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-SemiBold.eot');
+    src: local('Ridley Grotesk Semi Bold'), local('RidleyGrotesk-SemiBold'),
+        url('RidleyGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-SemiBold.woff2') format('woff2'),
+        url('RidleyGrotesk-SemiBold.woff') format('woff'),
+        url('RidleyGrotesk-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-Medium.eot');
+    src: local('Ridley Grotesk Medium'), local('RidleyGrotesk-Medium'),
+        url('RidleyGrotesk-Medium.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-Medium.woff2') format('woff2'),
+        url('RidleyGrotesk-Medium.woff') format('woff'),
+        url('RidleyGrotesk-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-ExtraBold.eot');
+    src: local('Ridley Grotesk Extra Bold'), local('RidleyGrotesk-ExtraBold'),
+        url('RidleyGrotesk-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-ExtraBold.woff2') format('woff2'),
+        url('RidleyGrotesk-ExtraBold.woff') format('woff'),
+        url('RidleyGrotesk-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ridley';
+    src: url('RidleyGrotesk-ThinItalic.eot');
+    src: local('Ridley Grotesk Thin Italic'), local('RidleyGrotesk-ThinItalic'),
+        url('RidleyGrotesk-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('RidleyGrotesk-ThinItalic.woff2') format('woff2'),
+        url('RidleyGrotesk-ThinItalic.woff') format('woff'),
+        url('RidleyGrotesk-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+

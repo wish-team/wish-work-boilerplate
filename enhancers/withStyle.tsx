@@ -1,7 +1,15 @@
-import React, { useMemo, useEffect } from 'react';
-import { CacheProvider } from '@emotion/react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import createCache from '@emotion/cache';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import UseThemeDetector from 'enhancers/hooks/UseThemeDetector';
+import { useAppDispatch } from 'redux/store';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import createEmotionCache from 'enhancers/createEmotionCache';
+import CssBaseline from '@mui/material/CssBaseline';
+import { i18n } from '../i18n';
+import Head from 'next/head';
 
 // Actions
 
@@ -14,33 +22,51 @@ import configTheme from '../theme/configure';
 // import APP_CONSTANTS from 'constants/app';
 
 /* WithTheme Component =================== */
-const WithTheme = ({ children }) => {
-	// const isDark = useThemeDetector();
-	// const dispatch = useDispatch();
+const WithTheme = ({ children, serverEmotionCache }) => {
+	const { locale } = useRouter();
 
-	const { themeObject } = useMemo(() => {
-		// const { direction, fontFamily } = APP_CONSTANTS.LANG[app.lang];
-		const theme = configTheme('ltr', 'light', 'Mukta');
-		const stylisPlugin = [];
+	const theme = useSelector(state => state.app.theme);
+	const [isDark, setIsDark] = useState(UseThemeDetector());
 
-		// if (direction === 'rtl') {
-		// 	stylisPlugin.push(rtlPlugin);
-		// }
+	// if (typeof window !== 'undefined') {
+	// 	useEffect(() => {
+	// 		console.log('isDark: ', isDark)
+	// 	}, [window.matchMedia.media])
+	// }
 
-		// const style = createCache({
-		// 	key: 'css',
-		// 	stylisPlugins: [rtlPlugin],
-		// });
+	const themeObject = useMemo(() => {
+		const { direction, fontFamily } = i18n.availableLocales[locale];
+		// console.log('direction: ', direction)
+		if (process.browser) {
+			const body = document.getElementsByTagName('body')[0];
+			body.setAttribute('dir', direction);
+		}
+		console.log("theme: ", theme)
+		return configTheme({ direction, mode: theme, fontFamily });
+	}, [theme, locale]);
 
-		return { themeObject: theme, };
-	}, []);
+	const emotionCache = useMemo(
+		() => serverEmotionCache || createEmotionCache(themeObject.direction),
+		[themeObject.direction, serverEmotionCache],
+	);
+
+	// console.log('theme object:', themeObject)
 
 	return (
-		// <CacheProvider>
+		<CacheProvider value={emotionCache}>
 			<ThemeProvider theme={themeObject}>
-				{children}
+				<Head>
+					{themeObject.typography.fontFamily.map((font, i) => (
+						<link href={`/fonts/${font}/style.css`} rel="stylesheet" />
+					))
+					}
+				</Head>
+				<CssBaseline />
+				<div dir={themeObject.direction}>
+					{children}
+				</div>
 			</ThemeProvider>
-		// </CacheProvider>
+		</CacheProvider>
 	);
 };
 

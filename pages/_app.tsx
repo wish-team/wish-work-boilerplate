@@ -38,25 +38,9 @@ const App = (props: AppPropsWithLayout) => {
 		<WithRedux>
 			<WithStyle serverEmotionCache={serverEmotionCache}>
 				<Head>
-					{/* <title>{Translation.t('title.main')}</title> */}
 					<meta name="viewport" content="initial-scale=1, width=device-width" />
 					<title>{t('meta.title')}</title>
-					<meta name='og:title' content={t('meta.wish_work')} />
-					{/* <meta name='keywords' content='Wish Work, wishwork, software solutions , community of software engineers, software partner , solution , Scope defining , Shaping , discover , product , Maintaining , programming, cloud development' /> */}
-					<meta name='description' content={t('meta.description')} />
-					<meta name='og:description' content={t('meta.description')} />
-					<meta name='subject' content={t('meta.subject')} />
-					<meta name='copyright' content={t('meta.wish_work')} />
-					<meta name='language' content={locale} />
-					<meta name='robots' content='index,follow' />
-					<meta name='author' content={t('meta.wish_work')} />
-
-					<meta name='og:image' content='/images/favicon/figure-it-right-web.png' />
-					<link rel='shortcut icon' type='image/ico' href='/favicon/favicon.ico' />
-					<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-					<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-					<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-					<link rel="manifest" href="/images/favicon/site.webmanifest" />
+					<meta name='og:title' content={t('head.title')} />
 				</Head>
 				<PageWrapper>
 					<Component {...pageProps} />

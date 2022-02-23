@@ -11,6 +11,7 @@
             "favicon": "url"
         },
         "title": {
-            "head": "Hello World!"
+            "head": "Hello World!",
+            "theme": "Change Theme"
         }
 }

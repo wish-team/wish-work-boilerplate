@@ -21,7 +21,6 @@ const appSlice = createSlice({
             state.loading = !state.loading;
         },
         toggleTheme: (state) => {
-            // console.log('state:', state)
             state.theme = state.theme === "light" ? "dark" : "light";
         },
         setTheme: (state, action) => {

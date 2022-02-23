@@ -14,7 +14,7 @@ const UseThemeDetector = () => {
 		? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 		: false);
 	if(typeof window !== 'undefined'){
-		console.log(window.matchMedia('(prefers-color-scheme: dark)'))
+		// console.log(window.matchMedia('(prefers-color-scheme: dark)'))
 	}	
 	const dispatch = useAppDispatch();
 	const [isDarkTheme, setIsDarkTheme] = useState(getCurrentTheme());

@@ -12,7 +12,6 @@ const createEmotionCache = (direction: Direction = 'ltr') => {
 	if (direction === 'rtl') {
 		stylisPlugins.push(rtlPlugin);
 	}
-	// console.log(direction)
 	return createCache({
 		key: `css-${direction[0]}`,
 		prepend: true,

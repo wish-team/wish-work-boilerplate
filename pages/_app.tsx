@@ -58,7 +58,6 @@ const App = (props: AppPropsWithLayout) => {
 					<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
 					<link rel="manifest" href="/images/favicon/site.webmanifest" />
 				</Head>
-				<CssBaseline />
 				<PageWrapper>
 					<Component {...pageProps} />
 				</PageWrapper>

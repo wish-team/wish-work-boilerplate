@@ -12,6 +12,7 @@ import { i18n } from '../i18n';
 import Head from 'next/head';
 
 // Actions
+import appSlice from 'redux/slices/app/slice';
 
 // import rtlPlugin from 'stylis-plugin-rtl';
 import configTheme from '../theme/configure';
@@ -24,44 +25,46 @@ import configTheme from '../theme/configure';
 /* WithTheme Component =================== */
 const WithTheme = ({ children, serverEmotionCache }) => {
 	const { locale } = useRouter();
-
-	const theme = useSelector(state => state.app.theme);
 	const [isDark, setIsDark] = useState(UseThemeDetector());
+	const theme = useSelector(state => state.app.theme);
 
-	// if (typeof window !== 'undefined') {
-	// 	useEffect(() => {
-	// 		console.log('isDark: ', isDark)
-	// 	}, [window.matchMedia.media])
+	const dispatch = useAppDispatch()
+
+	// if ((isDark && theme == "light") || (!isDark && theme == "dark")) {
+	// 	dispatch(appSlice.actions.toggleTheme())
 	// }
 
 	const themeObject = useMemo(() => {
 		const { direction, fontFamily } = i18n.availableLocales[locale];
-		// console.log('direction: ', direction)
+		// const background = theme == "dark" ?
+		// 	"linear-gradient(to bottom, rgba(0, 255, 255, 1),rgba(0, 244, 244, 1) ,rgba(10, 210, 210, 1))"
+		// 	:
+		// 	"linear-gradient(to bottom, rgba(0, 255, 255, 1),rgba(0, 244, 244, 1) ,rgba(10, 210, 210, 1))"
+
+		console.log(theme)
 		if (process.browser) {
 			const body = document.getElementsByTagName('body')[0];
 			body.setAttribute('dir', direction);
 		}
-		console.log("theme: ", theme)
 		return configTheme({ direction, mode: theme, fontFamily });
-	}, [theme, locale]);
+	}, [locale, theme]);
 
 	const emotionCache = useMemo(
 		() => serverEmotionCache || createEmotionCache(themeObject.direction),
 		[themeObject.direction, serverEmotionCache],
 	);
 
-	// console.log('theme object:', themeObject)
 
 	return (
 		<CacheProvider value={emotionCache}>
 			<ThemeProvider theme={themeObject}>
+				<CssBaseline />
 				<Head>
 					{themeObject.typography.fontFamily.map((font, i) => (
-						<link href={`/fonts/${font}/style.css`} rel="stylesheet" />
+						<link key={i} href={`/fonts/${font}/style.css`} rel="stylesheet" />
 					))
 					}
 				</Head>
-				<CssBaseline />
 				<div dir={themeObject.direction}>
 					{children}
 				</div>

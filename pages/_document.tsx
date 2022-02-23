@@ -5,7 +5,6 @@ import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from 'enhancers/createEmotionCache';
 import { i18n } from '../i18n';
 
-// import APP_CONSTANTS from 'constants/app';
 
 class MyDocument extends Document {
 	render() {
@@ -47,17 +46,6 @@ MyDocument.getInitialProps = async ctx => {
 	const chunks = extractCriticalToChunks(initialProps.html);
 	const styles = constructStyleTagsFromChunks(chunks);
 
-	// Make style tags
-	// const emotionStyleTags = chunks.styles.map((style: any) => {
-	// 	return (
-	// 		<style
-	// 			data-emotion={`${style.key} ${style.ids.join(' ')}`}
-	// 			key={style.key}
-	// 			// eslint-disable-next-line react/no-danger
-	// 			dangerouslySetInnerHTML={{ __html: style.css }}
-	// 		/>
-	// 	);
-	// });
 
 	ctx.renderPage = () => originalRenderPage({
 		enhanceApp: App => function EnhanceApp(props) {

@@ -10,7 +10,7 @@ However, there are multiple micro-libraries from which software engineers could 
 - I18N
 - REDUX Toolkit
 - ESLINT
-- REACT SPRING
+- FRAMER MOTION
 
 ## Structure
 We has been breaking down all the materials and provide a document in each folder, so in this section we just describe the main structure and folders

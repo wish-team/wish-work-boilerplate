@@ -24,10 +24,6 @@ type AppPropsWithLayout = AppProps & {
 	serverEmotionCache?: EmotionCache;
 }
 
-type PropTypes = {
-	locale: string,
-}
-
 // Component
 const App = (props: AppPropsWithLayout) => {
 	const { Component, serverEmotionCache, pageProps } = props;
@@ -50,11 +46,17 @@ const App = (props: AppPropsWithLayout) => {
 	)
 }
 
-export const getStaticProps = async ({ locale }: PropTypes) => ({
-	props: {
-		locale,
-		...(await serverSideTranslations(locale, ['common'], i18nConfig)),
-	},
-})
+/*
+	Not needed here, App component is everypage so as long as there's
+	serverSideTranslation on every page-level component, there's no problem.
+	as you can see, it's still showing the title when this is commented out.
+*/
+// export const getStaticProps = async ({ locale }) => ({
+//   props: {
+//     locale,
+//     ...(await serverSideTranslations(locale, ['common'], i18nConfig))
+//   }
+// })
+
 // Export
 export default appWithTranslation(App, i18nConfig);

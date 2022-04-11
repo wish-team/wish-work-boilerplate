@@ -9,10 +9,16 @@ import appSlice from 'redux/slices/app/slice';
 	https://medium.com/hypersphere-codes/detecting-system-theme-in-javascript-css-react-f6b961916d48
 */
 
+/*
+	if a system is in dark mode, there's no way that user can set it to lightmode
+	because this custom hook keeps setting it back to darkmode every chance it gets
+*/
+
 const UseThemeDetector = () => {
-	const getCurrentTheme = () => (typeof window !== 'undefined'
-		? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-		: false);
+	const getCurrentTheme = () => 
+		typeof window !== 'undefined'
+			? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+			: false;
 	if(typeof window !== 'undefined'){
 		// console.log(window.matchMedia('(prefers-color-scheme: dark)'))
 	}	

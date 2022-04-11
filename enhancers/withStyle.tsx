@@ -57,20 +57,18 @@ const WithTheme = ({ children, serverEmotionCache }) => {
 
 	return (
 		<CacheProvider value={emotionCache}>
-			<ThemeProvider theme={themeObject}>
-				<CssBaseline />
-				<Head>
-					{themeObject.typography.fontFamily.map((font, i) => (
-						<link key={i} href={`/fonts/${font}/style.css`} rel="stylesheet" />
-					))
-					}
-				</Head>
-				<div dir={themeObject.direction}>
-					{children}
-				</div>
-			</ThemeProvider>
+		  <ThemeProvider theme={themeObject}>
+			<CssBaseline />
+			<Head>
+			  {/* Rotunda's style.css file is missing, because of this line, it produces an error in console */}
+			  {(themeObject.typography.fontFamily as any).map((font: string, i: number) => (
+				<link key={i} href={`/fonts/${font}/style.css`} rel='stylesheet' />
+			  ))}
+			</Head>
+			<div dir={themeObject.direction}>{children}</div>
+		  </ThemeProvider>
 		</CacheProvider>
-	);
+	)
 };
 
 // Export default

@@ -1,18 +1,42 @@
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
-import { combineReducers } from 'redux';
+import storage from 'redux-persist/lib/storage'
+import { persistReducer } from 'redux-persist'
+import { combineReducers } from 'redux'
 
-import { appSlice } from './slices';
+import { appSlice } from './slices'
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
+
+/*
+	redux-persist error in server came from this file.
+	just change back storage to 'storage: storage' in rootPersistConfig
+	if you wanna go back
+	more info: https://github.com/vercel/next.js/discussions/15687
+*/
+
+const createNoopStorage = () => {
+  return {
+    getItem(_key: any) {
+      return Promise.resolve(null)
+    },
+    setItem(_key: any, value: any) {
+      return Promise.resolve(value)
+    },
+    removeItem(_key: any) {
+      return Promise.resolve()
+    }
+  }
+}
+
+const storageMod = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage()
 
 const rootPersistConfig = {
-	key: 'root',
-	// blacklist: ['app'],
-	version: 1,
-	storage,
-};
+  key: 'root',
+  // blacklist: ['app'],
+  version: 1,
+  storage: storageMod
+}
 
 const rootReducer = combineReducers({
-	app: appSlice.reducer
-});
+  app: appSlice.reducer
+})
 
-export default persistReducer(rootPersistConfig, rootReducer);
+export default persistReducer(rootPersistConfig, rootReducer)

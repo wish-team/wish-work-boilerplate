@@ -1,4 +1,4 @@
-import { fontWeight } from "@mui/system";
+import { fontWeight } from '@mui/system'
 
 /* 
   TypeError
@@ -11,63 +11,63 @@ const typography = {
     fontWeight: 'bold',
     fontSize: '104px',
     fontFamily: 'Ridley',
-    letterSpacing: '1rem'
+    letterSpacing: '1rem',
   },
 
   h2: {
     fontWeight: 'bold',
     fontSize: '60px',
-    fontFamily: "'Rotunda', 'Peyda'"
+    fontFamily: "'Rotunda', 'Peyda'",
   },
 
   h3: {
     fontWeight: 'bold',
     fontSize: '24px',
-    fontFamily: 'Rotunda'
+    fontFamily: 'Rotunda',
   },
 
   h4: {
     fontWeight: 'bold',
     fontSize: '18px',
-    fontFamily: 'Rotunda'
+    fontFamily: 'Rotunda',
   },
 
   subtitle1: {
     fontSize: '24px',
     fontWeight: '300',
     fontFamily: 'Rotunda',
-    lineHeight: '30px'
+    lineHeight: '30px',
   },
 
   subtitle2: {
     fontWeight: '300',
     fontSize: '18px',
-    fontFamily: 'Rotunda'
+    fontFamily: 'Rotunda',
   },
 
   title: {
     fontWeight: 'bold',
     fontSize: '16px',
-    fontFamily: 'Ridley'
+    fontFamily: 'Ridley',
   },
 
   paragraph: {
     fontWeight: '300',
     fontSize: '16px',
-    fontFamily: 'Rotunda'
+    fontFamily: 'Rotunda',
   },
 
   caption: {
     fontWeight: '300',
     fontSize: '14px',
-    fontFamily: 'Rotunda'
+    fontFamily: 'Rotunda',
   },
 
   link: {
     fontWeight: '800',
     fontSize: '14px',
-    fontFamily: 'Rotunda'
-  }
+    fontFamily: 'Rotunda',
+  },
 }
 
 export default typography

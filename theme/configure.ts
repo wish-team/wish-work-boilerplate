@@ -11,8 +11,6 @@ import typography from './typography'
 */
 
 const configTheme = ({ direction, mode, fontFamily }) => {
-  // console.log('b', mode)
-  // console.log(palette[mode])
   const theme = createTheme({
     direction,
     // components,
@@ -20,12 +18,12 @@ const configTheme = ({ direction, mode, fontFamily }) => {
     palette: {
       ...palette.common,
       ...palette[mode],
-      mode
+      mode,
     },
     typography: {
       ...typography,
-      fontFamily
-    }
+      fontFamily,
+    },
   })
 
   return theme

@@ -1,33 +1,31 @@
-/* eslint-disable no-param-reassign */
-
-import { createSlice } from "@reduxjs/toolkit";
-import type { ThemeMode } from "theme/type";
+import { createSlice } from '@reduxjs/toolkit'
+import type { ThemeMode } from 'theme/type'
 
 type AppState = {
-    loading: Boolean;
-    theme: ThemeMode;
-};
+  loading: Boolean
+  theme: ThemeMode | undefined
+}
 
 const initialState: AppState = {
-    loading: false,
-    theme: "light",
-};
+  loading: false,
+  theme: undefined,
+}
 
 const appSlice = createSlice({
-    name: "app",
-    initialState,
-    reducers: {
-        toggleLoading: (state) => {
-            state.loading = !state.loading;
-        },
-        toggleTheme: (state) => {
-            state.theme = state.theme === "light" ? "dark" : "light";
-        },
-        setTheme: (state, action) => {
-            const theme = action.payload;
-            state.theme = theme;
-        },
+  name: 'app',
+  initialState,
+  reducers: {
+    toggleLoading: (state) => {
+      state.loading = !state.loading
     },
-});
+    toggleTheme: (state) => {
+      state.theme = state.theme === 'light' ? 'dark' : 'light'
+    },
+    setTheme: (state, action) => {
+      const theme = action.payload
+      state.theme = theme
+    },
+  },
+})
 
-export default appSlice;
+export default appSlice

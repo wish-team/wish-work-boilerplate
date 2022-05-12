@@ -1,4 +1,3 @@
-import storage from 'redux-persist/lib/storage'
 import { persistReducer } from 'redux-persist'
 import { combineReducers } from 'redux'
 
@@ -14,15 +13,15 @@ import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 const createNoopStorage = () => {
   return {
-    getItem(_key: any) {
+    getItem(_key: unknown) {
       return Promise.resolve(null)
     },
-    setItem(_key: any, value: any) {
+    setItem(_key: unknown, value: unknown) {
       return Promise.resolve(value)
     },
-    removeItem(_key: any) {
+    removeItem(_key: unknown) {
       return Promise.resolve()
-    }
+    },
   }
 }
 
@@ -32,11 +31,11 @@ const rootPersistConfig = {
   key: 'root',
   // blacklist: ['app'],
   version: 1,
-  storage: storageMod
+  storage: storageMod,
 }
 
 const rootReducer = combineReducers({
-  app: appSlice.reducer
+  app: appSlice.reducer,
 })
 
 export default persistReducer(rootPersistConfig, rootReducer)

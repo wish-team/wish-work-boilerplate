@@ -1,15 +1,15 @@
 /** @type {import('next').NextConfig} */
 
-const withPlugins = require('next-compose-plugins');
-const withPWA = require('next-pwa');
+const withPlugins = require('next-compose-plugins')
+const withPWA = require('next-pwa')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
-});
-const { i18n } = require('./i18n');
+})
+const { i18n } = require('./i18n')
 
 const nextConfig = {
   images: {
-    domains: ['media.graphcms.com']
+    domains: ['media.graphcms.com'],
   },
   typescript: {
     // !! WARN !!
@@ -29,9 +29,6 @@ const nextConfig = {
     scrollRestoration: true,
   },
   i18n,
-};
+}
 
-module.exports = withPlugins([
-  [withBundleAnalyzer],
-  [withPWA],
-], nextConfig);
+module.exports = withPlugins([[withBundleAnalyzer], [withPWA]], nextConfig)

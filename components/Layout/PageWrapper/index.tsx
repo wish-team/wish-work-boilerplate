@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
 // import Footer  from '../Footer';
 // import Header from '../Header';
 // import Container from 'components/Layout/Container';
@@ -8,33 +8,30 @@ import styled from '@emotion/styled';
 
 // Styles
 const Root = styled.div`
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-`;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+`
 
 const Content = styled.div`
-	position: relative;
-	margin-top: 8rem;
+  position: relative;
+  margin-top: 8rem;
 `
 
 // Components
 const PageWrapper = ({ children }) => (
-	<Root>
-		<Content>
-			{children}
-		</Content>
-
-	</Root>
-);
+  <Root>
+    <Content>{children}</Content>
+  </Root>
+)
 
 // Props
 PageWrapper.propTypes = {
-	children: PropTypes.node,
-};
+  children: PropTypes.node,
+}
 
 PageWrapper.defaultProps = {
-	children: null,
-};
+  children: null,
+}
 
-export default PageWrapper;
+export default PageWrapper

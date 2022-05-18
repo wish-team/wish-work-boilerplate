@@ -1,1 +1,1 @@
-export { default as appSlice } from './app/slice';
+export { default as appSlice } from './app/slice'

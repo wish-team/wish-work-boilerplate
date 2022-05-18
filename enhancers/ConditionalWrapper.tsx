@@ -1,14 +1,13 @@
-import React from 'react';
+import React from 'react'
 
 type Props = {
-	condition: Boolean;
-	wrapper: Function;
-	children: React.ReactElement;
+  condition: Boolean
+  wrapper: Function
+  children: React.ReactElement
 }
 
-const ConditionalWrapper = ({ condition, wrapper, children }: Props) => (
-	condition ? wrapper(children) : children
-);
+const ConditionalWrapper = ({ condition, wrapper, children }: Props) =>
+  condition ? wrapper(children) : children
 
 // Export default
-export default ConditionalWrapper;
+export default ConditionalWrapper

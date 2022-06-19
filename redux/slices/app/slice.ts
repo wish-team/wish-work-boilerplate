@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { ThemeMode } from 'theme/type'
 
 type AppState = {
-  loading: Boolean
+  loading: boolean
   theme: ThemeMode | undefined
 }
 

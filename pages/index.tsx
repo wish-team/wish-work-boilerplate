@@ -34,11 +34,14 @@ const Page = () => {
     from: { opacity: 0.1, x: 10 },
     to: { opacity: 1, x: 0 },
     loop: { reverse: true },
+    duration: 900,
   }))
   const dispatch = useAppDispatch()
 
   const router = useRouter()
-
+  const handleClick = () => {
+    console.log('this is:', this);
+  };
   return (
     <div>
       <Grid container direction="column" sx={{ alignItems: 'center', justifyContent: 'center' }}>
@@ -87,16 +90,16 @@ const Page = () => {
             Wish Work NEXT JS Boilerplate
           </Typography>
         </Box>
-        <Button
-          variant="outlined"
-          onClick={() => {
-            dispatch(appSlice.actions.toggleTheme())
-          }}
+        <button
+          // variant="outlined"
+          onClick={
+            handleClick
+          }
         >
           {t('title.theme')}
-        </Button>
+        </button>
       </Grid>
-    </div>
+    </div >
   )
 }
 

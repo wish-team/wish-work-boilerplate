@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/material/styles'
 import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import useThemeDetector from 'enhancers/hooks/UseThemeDetector'
-import { useAppDispatch } from 'redux/store'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import createEmotionCache from 'enhancers/createEmotionCache'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -27,6 +26,7 @@ const WithStyle = ({ children, serverEmotionCache }) => {
 	// const [isDark, setIsDark] = useState(useThemeDetector())
 	const theme = useSelector((state) => state.app.theme)
 
+	console.log(theme)
 	// const dispatch = useAppDispatch()
 
 	// if ((isDark && theme == "light") || (!isDark && theme == "dark")) {

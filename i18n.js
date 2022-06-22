@@ -70,7 +70,7 @@ module.exports = {
     },
   },
   serializeConfig: false,
-  reloadOnPrerender: true,
+  reloadOnPrerender: process.env.NODE_ENV !== 'production' ? true : false,
   interpolation: {
     format: (value, format, lang, options) => {
       let newOptions = { ...options }

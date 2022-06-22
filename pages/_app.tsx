@@ -2,8 +2,7 @@ import React from 'react'
 import type { ReactElement, ReactNode } from 'react'
 import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
-import PropTypes from 'prop-types'
-import CssBaseline from '@mui/material/CssBaseline'
+// import CssBaseline from '@mui/material/CssBaseline'
 import { appWithTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 
@@ -20,22 +19,22 @@ type NextPageWithLayout = NextPage & {
 }
 
 type AppPropsWithLayout = AppProps & {
-  serverEmotionCache?: EmotionCache
+  emotionCache?: EmotionCache
   Component: NextPageWithLayout
 }
 
 const App = (props: AppPropsWithLayout) => {
-  const { Component, serverEmotionCache, pageProps } = props
-  const { locale } = useRouter()
+  const { Component, emotionCache, pageProps } = props
+  // const { locale } = useRouter()
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
     <WithRedux>
-      <WithStyle serverEmotionCache={serverEmotionCache}>
+      <WithStyle serverEmotionCache={emotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
-        <PageWrapper>{getLayout(<Component {...pageProps} />)}</PageWrapper>
+        <PageWrapper>{getLayout(<Component {...pageProps} />)} </PageWrapper>
       </WithStyle>
     </WithRedux>
   )

@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from 'react';
-
+import { createContext, useContext, useMemo, useState } from 'react';
+import useLocalStorage from './useLocalStorage'
 
 const AppContext = createContext({
   mode: undefined,
@@ -7,7 +7,12 @@ const AppContext = createContext({
 });
 
 export function AppWrapper({ children }) {
-  const [mode, setTheme] = useState('light')
+  const getPreferredTheme = () =>
+    typeof window !== 'undefined'
+      ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      : false
+
+  const [mode, setTheme] = useLocalStorage("mode", getPreferredTheme() ? "dark" : "light")
 
   return (
     <AppContext.Provider value={{ mode, setTheme }}>

@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@mui/material'
 import { useAppContext } from '../context/state'
 import FormController from '../components/Form/Controller/FormController'
+import ModalController from '../components/Modal/Controller'
 type Theme = {
   mode: "dark" | "light"
 }
 
 const Index = () => {
   const { mode, setTheme } = useAppContext();
+  const [open, setOpen] = React.useState(false);
 
-  const handleSubmit = () => {
-    console.log('submit the form')
+
+  const openModal = () => {
+    console.log('open2:', open)
+    setOpen(true)
+  }
+
+  const handleSubmit = (data: any) => {
+    console.log("submit the form's data", JSON.stringify({ data }))
   }
   const themeChanger = () => {
     setTheme(mode === 'dark' ? 'light' : 'dark')
@@ -61,6 +69,13 @@ const Index = () => {
           },
         ]}
       />
+      <ModalController
+        title={'test modal'}
+        description={'description'}
+        open={open}
+        setOpen={setOpen}
+      />
+      <Button variant='outlined' onClick={openModal}>Modal</Button>
       <Button variant="outlined" onClick={themeChanger}>Theme</Button>
     </div>
   )

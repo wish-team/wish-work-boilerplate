@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useState } from 'react'
 import { ThemeProvider } from '@mui/material/styles'
 // import createCache from '@emotion/cache'
 import { useRouter } from 'next/router'
-import useThemeDetector from 'enhancers/hooks/UseThemeDetector'
+import useThemeDetector from 'context/useLocalStorage'
 import { CacheProvider, EmotionCache } from '@emotion/react'
 import createEmotionCache from 'enhancers/createEmotionCache'
 import CssBaseline from '@mui/material/CssBaseline'
@@ -24,12 +24,16 @@ type Theme = {
 
 /* WithTheme Component =================== */
 const WithStyle = ({ children, serverEmotionCache }) => {
+	const [loaded, setLoaded] = React.useState(false);
 	const { locale } = useRouter()
 	const theme: Theme = useAppContext();
 	const mode = theme.mode
-	useThemeDetector()
+	// useThemeDetector()
 	// const [isDark, setIsDark] = useState(useThemeDetector())
 
+	React.useEffect(() => {
+		setLoaded(true);
+	}, []);
 
 
 	const themeObject = useMemo(() => {
@@ -60,7 +64,7 @@ const WithStyle = ({ children, serverEmotionCache }) => {
 						)
 					)}
 				</Head>
-				<div dir={themeObject.direction}>{children}</div>
+				{loaded && <div dir={themeObject.direction}>{children}</div>}
 			</ThemeProvider>
 		</CacheProvider>
 	)

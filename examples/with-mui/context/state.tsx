@@ -1,21 +1,18 @@
-import { createContext, useContext, useState } from 'react';
-
-// type SharedState = {
-//   mode: 'dark' | 'light'
-// }
+import { createContext, useContext, useMemo, useState } from 'react';
+import useLocalStorage from './useLocalStorage'
 
 const AppContext = createContext({
   mode: undefined,
   setTheme: async (theme: string) => null,
 });
 
-// const sharedState: SharedState = {
-//   /* whatever you want */
-//   mode: 'dark'
-// }
-
 export function AppWrapper({ children }) {
-  const [mode, setTheme] = useState('light')
+  const getPreferredTheme = () =>
+    typeof window !== 'undefined'
+      ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      : false
+
+  const [mode, setTheme] = useLocalStorage("mode", getPreferredTheme() ? "dark" : "light")
 
   return (
     <AppContext.Provider value={{ mode, setTheme }}>
@@ -23,6 +20,7 @@ export function AppWrapper({ children }) {
     </AppContext.Provider>
   );
 }
+
 export function useAppContext() {
   return useContext(AppContext);
 }

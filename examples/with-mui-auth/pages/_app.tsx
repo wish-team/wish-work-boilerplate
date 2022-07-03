@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import { SessionProvider } from "next-auth/react"
 
 import { appWithTranslation } from 'next-i18next';
 import WithStyle from '../enhancers/withStyle'
@@ -94,11 +95,13 @@ const App = (props: AppPropsWithLayout) => {
         <meta name='distribution' content='Global' />
         <meta name='og:email' content='info@wishwork.org' />
       </Head>
-      <AppWrapper>
-        <WithStyle serverEmotionCache={emotionCache}>
-          <div>{getLayout(<Component {...pageProps} />)} </div>
-        </WithStyle>
-      </AppWrapper>
+      <SessionProvider session={pageProps.session}>
+        <AppWrapper>
+          <WithStyle serverEmotionCache={emotionCache}>
+            <div>{getLayout(<Component {...pageProps} />)} </div>
+          </WithStyle>
+        </AppWrapper>
+      </SessionProvider>
     </div>
   )
 }

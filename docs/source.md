@@ -1,11 +1,11 @@
 ## Algorithm
-visit [Here]("https://superstudy.guide/")
+visit [Here](https://superstudy.guide/)
 
 ## Software Architecture
-visit [Here](".")
+visit [Here](.)
 
 ## Design Pattern
-visit [Here]("https://refactoring.guru/")
+visit [Here](https://refactoring.guru/)
 
 ## Javascript / Typescript
-visit [Here]("https://javascript.info").
+visit [Here](https://javascript.info).

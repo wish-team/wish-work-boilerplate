@@ -1,0 +1,47 @@
+@font-face {
+	font-family: Peyda;
+	src: url("./Peyda-Light/Peyda-Light.eot");
+	src: url("./Peyda-Light/Peyda-Light.eot?#iefix") format("embedded-opentype"),
+		url("./Peyda-Light/Peyda-Light.ttf") format("truetype"),
+		url('./Peyda-Light/Peyda-Light.woff') format("woff"),
+		url("./Peyda-Light/Peyda-Light.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 300;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: Peyda;
+	src: url("./Peyda-Regular/Peyda-Regular.eot");
+	src: url("./Peyda-Regular/Peyda-Regular.eot?#iefix") format("embedded-opentype"),
+	  	url("./Peyda-Regular/Peyda-Regular.ttf") format("truetype"),
+	  	url("./Peyda-Regular/Peyda-Regular.woff") format("woff"),
+	  	url("./Peyda-Regular/Peyda-Regular.woff2") format("woff2");
+	font-style: normal;
+	font-weight:500;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: Peyda;
+	src: url("./Peyda-Medium/Peyda-Medium.eot");
+	src: url("./Peyda-Medium/Peyda-Medium.eot?#iefix") format("embedded-opentype"),
+	  	url("./Peyda-Medium/Peyda-Medium.ttf") format("truetype"),
+	  	url('./Peyda-Medium/Peyda-Medium.woff') format("woff"),
+	  	url("./Peyda-Medium/Peyda-Medium.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 700;
+	font-display: auto;
+}
+
+@font-face {
+	font-family: Peyda;
+	src: url("./Peyda-Bold/Peyda-Bold.eot");
+	src: url("./Peyda-Bold/Peyda-Bold.eot?#iefix") format("embedded-opentype"),
+	  	url("./Peyda-Bold/Peyda-Bold.ttf") format("truetype"),
+	  	url('./Peyda-Bold/Peyda-Bold.woff') format("woff"),
+	  	url("./Peyda-Bold/Peyda-Bold.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 800;
+	font-display: auto;
+}

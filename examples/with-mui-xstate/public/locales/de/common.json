@@ -1,0 +1,17 @@
+{
+  "universal": {
+    "lm": "Learn More",
+    "cu": "Contact Us"
+  },
+  "meta": {
+    "title": "Wish Work | Software Company",
+    "description": "Community of software engineers and designers who provide cutting-edge software solutions through web",
+    "subject": "Software Company Website",
+    "wish_work": "Wish Work",
+    "favicon": "url"
+  },
+  "title": {
+    "head": "Hallo World!",
+    "theme": "Thema Wechseln"
+  }
+}

@@ -1,0 +1,209 @@
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-BlackItalic.eot');
+    src: local('Rotunda Black Italic'), local('Rotunda-BlackItalic'),
+        url('Rotunda-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-BlackItalic.woff2') format('woff2'),
+        url('Rotunda-BlackItalic.woff') format('woff'),
+        url('Rotunda-BlackItalic.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-BoldItalic.eot');
+    src: local('Rotunda Bold Italic'), local('Rotunda-BoldItalic'),
+        url('Rotunda-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-BoldItalic.woff2') format('woff2'),
+        url('Rotunda-BoldItalic.woff') format('woff'),
+        url('Rotunda-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Black.eot');
+    src: local('Rotunda Black'), local('Rotunda-Black'),
+        url('Rotunda-Black.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Black.woff2') format('woff2'),
+        url('Rotunda-Black.woff') format('woff'),
+        url('Rotunda-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Regular.eot');
+    src: local('Rotunda'), local('Rotunda-Regular'),
+        url('Rotunda-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Regular.woff2') format('woff2'),
+        url('Rotunda-Regular.woff') format('woff'),
+        url('Rotunda-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-SemiBoldItalic.eot');
+    src: local('Rotunda  Semi Bold Italic'), local('Rotunda-SemiBoldItalic'),
+        url('Rotunda-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-SemiBoldItalic.woff2') format('woff2'),
+        url('Rotunda-SemiBoldItalic.woff') format('woff'),
+        url('Rotunda-SemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Italic.eot');
+    src: local('Rotunda Italic'), local('Rotunda-Italic'),
+        url('Rotunda-Italic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Italic.woff2') format('woff2'),
+        url('Rotunda-Italic.woff') format('woff'),
+        url('Rotunda-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-LightItalic.eot');
+    src: local('Rotunda Light Italic'), local('Rotunda-LightItalic'),
+        url('Rotunda-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-LightItalic.woff2') format('woff2'),
+        url('Rotunda-LightItalic.woff') format('woff'),
+        url('Rotunda-LightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-MediumItalic.eot');
+    src: local('Rotunda Medium Italic'), local('Rotunda-MediumItalic'),
+        url('Rotunda-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-MediumItalic.woff2') format('woff2'),
+        url('Rotunda-MediumItalic.woff') format('woff'),
+        url('Rotunda-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-ExtraBoldItalic.eot');
+    src: local('Rotunda Extra Bold Italic'), local('Rotunda-ExtraBoldItalic'),
+        url('Rotunda-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-ExtraBoldItalic.woff2') format('woff2'),
+        url('Rotunda-ExtraBoldItalic.woff') format('woff'),
+        url('Rotunda-ExtraBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Bold.eot');
+    src: local('Rotunda Bold'), local('Rotunda-Bold'),
+        url('Rotunda-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Bold.woff2') format('woff2'),
+        url('Rotunda-Bold.woff') format('woff'),
+        url('Rotunda-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Thin.eot');
+    src: local('Rotunda Thin'), local('Rotunda-Thin'),
+        url('Rotunda-Thin.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Thin.woff2') format('woff2'),
+        url('Rotunda-Thin.woff') format('woff'),
+        url('Rotunda-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Light.eot');
+    src: local('Rotunda Light'), local('Rotunda-Light'),
+        url('Rotunda-Light.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Light.woff2') format('woff2'),
+        url('Rotunda-Light.woff') format('woff'),
+        url('Rotunda-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-SemiBold.eot');
+    src: local('Rotunda Semi Bold'), local('Rotunda-SemiBold'),
+        url('Rotunda-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-SemiBold.woff2') format('woff2'),
+        url('Rotunda-SemiBold.woff') format('woff'),
+        url('Rotunda-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-Medium.eot');
+    src: local('Rotunda Medium'), local('Rotunda-Medium'),
+        url('Rotunda-Medium.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-Medium.woff2') format('woff2'),
+        url('Rotunda-Medium.woff') format('woff'),
+        url('Rotunda-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-ExtraBold.eot');
+    src: local('Rotunda Extra Bold'), local('Rotunda-ExtraBold'),
+        url('Rotunda-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-ExtraBold.woff2') format('woff2'),
+        url('Rotunda-ExtraBold.woff') format('woff'),
+        url('Rotunda-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Rotunda';
+    src: url('Rotunda-ThinItalic.eot');
+    src: local('Rotunda Thin Italic'), local('Rotunda-ThinItalic'),
+        url('Rotunda-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('Rotunda-ThinItalic.woff2') format('woff2'),
+        url('Rotunda-ThinItalic.woff') format('woff'),
+        url('Rotunda-ThinItalic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}

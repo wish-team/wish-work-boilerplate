@@ -74,35 +74,13 @@ export const endpoints: Endpoints = {
 	emailAuth_verify: 				{ endpoint: '/email-auth/verify',				method: 'POST'								 },
 
 	// -------------- Accounting -----------------------------
-	debitCard_list: 				{ endpoint: '/debit-card',						method: 'GET'								 },
-	debitCard_new: 					{ endpoint: '/debit-card/new',					method: 'POST'								 },
-	debitCard_delete: 				{ endpoint: '/debit-card/delete/[id]',			method: 'DELETE'							 },
-	withdraw_request: 				{ endpoint: '/withdraw/request',				method: 'POST'								 },
-	deposit_request: 				{ endpoint: '/deposit/request',					method: 'POST'								 },
-	wallet_list: 					{ endpoint: '/wallet',							method: 'GET'								 },
-	wallet_view: 					{ endpoint: '/wallet/[crypto]',					method: 'GET'								 },
-	crypto_list: 					{ endpoint: '/crypto',							method: 'GET'								 },
-	crypto_view: 					{ endpoint: '/crypto/[symbol]',					method: 'GET'								 },
-	crypto_order_request: 			{ endpoint: '/crypto/order/[symbol]',			method: 'POST'								 },
 
 	// -------------- History --------------------------------
-	transaction_list: 				{ endpoint: '/transaction',						method: 'GET'								 },
-	order_list: 					{ endpoint: '/order',							method: 'GET'								 },
-	trade_list: 					{ endpoint: '/trade',							method: 'GET'								 },
 	login_list: 					{ endpoint: '/security/login',					method: 'GET'								 },
 
 	// -------------- Tickets ans Notifications --------------
-	ticket_list: 					{ endpoint: '/ticket',							method: 'GET'								 },
-	ticket_new: 					{ endpoint: '/ticket/new',						method: 'POST'								 },
-	ticket_view: 					{ endpoint: '/ticket/[id]',						method: 'GET'								 },
-	ticket_reply: 					{ endpoint: '/ticket/[id]',						method: 'POST'								 },
 	notification_list: 				{ endpoint: '/notification',					method: 'GET'								 },
 	notification_read: 				{ endpoint: '/notification/read',				method: 'POST'								 },
-
-	// -------------- Exchange -------------------------------
-	exchange_order: 				{ endpoint: '/exchange/order',					method: 'GET'								 },
-	exchange_order_book: 			{ endpoint: '/exchange/order-book',				method: 'GET'								 },
-	exchange_last_orders: 			{ endpoint: '/exchange/last/orders',			method: 'GET'								 },
 
 	// -------------- Referral -------------------------------
 	referral_code_list: 			{ endpoint: '/referral/code',					method: 'GET'								 },

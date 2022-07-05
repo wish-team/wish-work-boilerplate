@@ -2,27 +2,76 @@ import useSWR from 'swr';
 import { endpoints, configs } from './configs/api';
 import replaceUrlMatchingParams from '../utils/replaceUrlMatchingParams';
 
-const useFetcher = (endpoint: string, params?: Object) => {
-    if(!endpoint) return {data: null}
-    const conf = endpoints[endpoint];
+export const useFetcher = (endpoint: string, params?: Object, isPrivate?: Boolean, revalidate?: Boolean) => {
+    let withAuth = true
+	let data, loading, err
+	if(!endpoint) return {data: null}
+	if(!isPrivate) {withAuth = false}
 
+    const conf = endpoints[endpoint];
+	
     // for redux implementation
     // const auth = useSelector(state => state.auth);
 
 	const { url, remainingParams } = replaceUrlMatchingParams(conf.endpoint, params);
 
-	const { data: response, error } = useSWR({
-		url,
-		params: remainingParams,
-		accessToken: 'auth.accessToken',
-		refreshToken: 'auth.refreshToken',
-	});
+	if(withAuth) {
 
-    const data = response && response.data.ok ? response.data.data : {};
-	const loading = !response;
+	/* for redux implementation */
+    // const auth = useSelector(state => state.auth);	
 
-    return { loading, data, error };
+	/* for context implementation */
+	// const auth = useAuthContext()
+		const { data: response, error } = useSWR({
+			url,
+			params: remainingParams,
+			accessToken: 'auth.accessToken',
+			refreshToken: 'auth.refreshToken',
+		});
+		data = response && response.data.ok ? response.data.data : {};
+		loading = !response;
+		err = error
+	}
+	else if(revalidate) {
+		const {data: response, error} = useSWR({
+			url,
+			params: remainingParams,
+			},
+			{
+				onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
+					// Never retry on 404.
+					if (error.status === 404) return
+				
+					// Never retry for a specific key.
+					if (key === '/api/user') return
+				
+					// Only retry up to 10 times.
+					if (retryCount >= 10) return
+				
+					// Retry after 5 seconds.
+					setTimeout(() => revalidate({ retryCount }), 5000)
+				  }			
+			}			
+		)
+
+		data = response && response.data.ok ? response.data.data : {};
+		loading = !response;
+		err = error
+	}
+
+	else {
+		const { data: response, error } = useSWR({
+			url,
+			params: remainingParams,
+			accessToken: 'auth.accessToken',
+			refreshToken: 'auth.refreshToken',
+		});
+		data = response && response.data.ok ? response.data.data : {};
+		loading = !response;
+		err = error
+	}
+
+    return { loading, data, err };
 
 }
 
-export default useFetcher

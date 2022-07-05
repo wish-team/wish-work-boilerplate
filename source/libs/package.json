@@ -9,6 +9,7 @@
   "author": "Amirhosein Shirani",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "swr": "^1.3.0"
   }
 }

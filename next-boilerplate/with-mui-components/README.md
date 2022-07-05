@@ -1,3 +1,5 @@
+# Boilerplate with MUI and Components
+
 ## How to use
 
 Download the example [or clone the repo](https://github.com/wish-team/nextjs-boilerplate):

@@ -3,6 +3,7 @@
 > This repository is a boilerplate for development of any web-based software regardless of the size of the project
 
 ### Framework and Libraries
+---
 Following libraries are the base libraries for all the examples existed in this repository:
 
 ```json
@@ -21,16 +22,19 @@ Following libraries are the base libraries for all the examples existed in this 
 ```
 
 ### Structure
-
+---
 #### Docs
+---
 consists of the documents related to get familiar and practice in the field of software development
 
 #### Examples
+---
 It's the main folder of this repository which consists of boilerplate with convention naming of usage of its packages.
 
 ### Source
+---
 consists of libraries and utilities applicable in projects
 
 ### Style Guide
+---
 conventions for development of any program by Wish Work
-

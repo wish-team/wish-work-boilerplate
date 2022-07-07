@@ -11,7 +11,7 @@ const CustomHead = (props: CustomHeadProps) => {
 
   return (
     <Head>
-      <title>{t('meta.title')}</title>
+      <title>{t(props.title)}</title>
       <meta name="og:title" content={t(props.openGraphTitle)} />
     </Head>
   )

@@ -11,6 +11,7 @@
     "isready:prod": "npm run format && npm run lint && npm run build"
   },
   "dependencies": {
+    "@emotion/cache": "^11.9.3",
     "@emotion/react": "^11.7.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.6.0",

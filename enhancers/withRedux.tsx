@@ -3,18 +3,11 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 
 // Libs
-import { store, persistor } from 'redux/store'
-import ConditionalWrapper from './ConditionalWrapper'
+import { persistor, store } from 'redux/store'
 
-type Props = {
-  children: React.ReactElement
+export type Props = {
+  children: React.ReactNode
 }
-
-const PersistWrapper = (c: Props) => (
-  <PersistGate loading={null} persistor={persistor}>
-    {c}
-  </PersistGate>
-)
 
 /* ReduxProvider Component =================== */
 
@@ -25,9 +18,9 @@ const PersistWrapper = (c: Props) => (
 
 const WithRedux = ({ children }: Props) => (
   <Provider store={store}>
-    <ConditionalWrapper condition={process.browser} wrapper={PersistWrapper}>
+    <PersistGate persistor={persistor} loading={null}>
       {children}
-    </ConditionalWrapper>
+    </PersistGate>
   </Provider>
 )
 

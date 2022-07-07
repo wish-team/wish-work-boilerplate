@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'redux/store'
-import appSlice from 'redux/slices/app/slice'
+import { useAppDispatch, useAppSelector } from 'redux/hooks'
+import { setTheme } from 'redux/slices/appSlice'
 
 const useThemeDetector = () => {
-  const theme = useSelector((state) => state.app.theme)
+  const theme = useAppSelector((state) => state.app.theme)
   const getPreferredTheme = () =>
     typeof window !== 'undefined'
       ? window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -18,7 +17,7 @@ const useThemeDetector = () => {
   useEffect(() => {
     if (!theme) {
       const preferredTheme = isDark ? 'dark' : 'light'
-      dispatch(appSlice.actions.setTheme(preferredTheme))
+      dispatch(setTheme(preferredTheme))
     }
   }, [dispatch, isDark, theme])
 }

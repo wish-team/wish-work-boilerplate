@@ -1,36 +1,36 @@
-import React, { useRef } from 'react'
+import React from 'react'
 
 // redux
-import { useAppDispatch } from 'redux/store'
-import { appSlice } from 'redux/slices'
+import { useAppDispatch } from 'redux/hooks'
+import { toggleTheme } from 'redux/slices/appSlice'
 
 // material ui
-import { Typography, Box, Grid, Button, Link as MaterialLink } from '@mui/material'
+import { Box, Button, Grid, Link as MaterialLink, Typography } from '@mui/material'
 
 // emotion
 import styled from '@emotion/styled'
 
 // next
 import { GetStaticProps } from 'next'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 // translation
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
-import i18nConfig from '../i18n'
 import CustomHead from 'enhancers/CustomHead'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import i18nConfig from '../i18n'
 
 // react spring
-import { useTrail, animated } from 'react-spring'
+import { animated, useTrail } from 'react-spring'
 
 const HeadText = styled.div``
 
 const Page = () => {
   const { t } = useTranslation('common')
   const WORD_TRANS = t('title.head').split('')
-  const words = useRef(WORD_TRANS.map((_, index) => index))
-  const [springs, api] = useTrail(WORD_TRANS.length, (index) => ({
+  // const words = useRef(WORD_TRANS.map((_, index) => index))
+  const [springs] = useTrail(WORD_TRANS.length, () => ({
     from: { opacity: 0.1, x: 10 },
     to: { opacity: 1, x: 0 },
     loop: { reverse: true },
@@ -90,7 +90,7 @@ const Page = () => {
         <Button
           variant="outlined"
           onClick={() => {
-            dispatch(appSlice.actions.toggleTheme())
+            dispatch(toggleTheme())
           }}
         >
           {t('title.theme')}
@@ -112,7 +112,7 @@ Page.getLayout = (page: React.ReactElement) => {
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
     locale,
-    ...(await serverSideTranslations(locale, ['common'], i18nConfig)),
+    ...(await serverSideTranslations(locale ?? '', ['common'], i18nConfig)),
   },
 })
 

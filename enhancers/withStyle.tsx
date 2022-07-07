@@ -1,31 +1,20 @@
-import React, { useMemo, useEffect, useState } from 'react'
-import { ThemeProvider } from '@mui/material/styles'
-// import createCache from '@emotion/cache'
-import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux'
-import useThemeDetector from 'enhancers/hooks/useThemeDetector'
-import { useAppDispatch } from 'redux/store'
-import { CacheProvider, EmotionCache } from '@emotion/react'
-import createEmotionCache from 'enhancers/createEmotionCache'
+import { CacheProvider } from '@emotion/react'
 import CssBaseline from '@mui/material/CssBaseline'
-import { i18n } from '../i18n'
+import { ThemeProvider } from '@mui/material/styles'
+import createEmotionCache from 'enhancers/createEmotionCache'
+import useThemeDetector from 'enhancers/hooks/useThemeDetector'
 import Head from 'next/head'
-
-// Actions
-import appSlice from 'redux/slices/app/slice'
-
-// import rtlPlugin from 'stylis-plugin-rtl';
+import { useRouter } from 'next/router'
+import { useMemo } from 'react'
+import { useAppSelector } from 'redux/hooks'
+import { i18n } from '../i18n'
 import configTheme from '../theme/configure'
 
-// Constants
-// import APP_CONSTANTS from 'constants/app';
-
-/* WithTheme Component =================== */
 const WithTheme = ({ children, serverEmotionCache }) => {
   const { locale } = useRouter()
   useThemeDetector()
   // const [isDark, setIsDark] = useState(useThemeDetector())
-  const theme = useSelector((state) => state.app.theme)
+  const theme = useAppSelector((state) => state.app.theme)
 
   // const dispatch = useAppDispatch()
 
@@ -71,9 +60,4 @@ const WithTheme = ({ children, serverEmotionCache }) => {
   )
 }
 
-// Export default
 export default WithTheme
-
-// function useSelector(arg0: (state: any) => any) {
-// 	throw new Error('Function not implemented.');
-// }

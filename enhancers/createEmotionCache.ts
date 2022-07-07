@@ -1,4 +1,4 @@
-import createCache from '@emotion/cache'
+import createCache, { StylisPlugin } from '@emotion/cache'
 import rtlPlugin from 'stylis-plugin-rtl'
 import type { Direction } from 'theme/type'
 
@@ -8,7 +8,7 @@ import type { Direction } from 'theme/type'
 	with other styling solutions, like CSS modules.
 */
 const createEmotionCache = (direction: Direction = 'ltr') => {
-  const stylisPlugins = []
+  const stylisPlugins: StylisPlugin[] = []
   if (direction === 'rtl') {
     stylisPlugins.push(rtlPlugin)
   }

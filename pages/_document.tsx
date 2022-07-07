@@ -2,21 +2,22 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
 import createEmotionCache from 'enhancers/createEmotionCache'
 import { i18n } from '../i18n'
+import { Direction } from 'theme/type'
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-          <meta name="format-detection" content="telephone=no" />
-          <meta name="mobile-web-app-capable" content="yes" />
+          <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
           <meta name="theme-color" content="#000" />
 
-          <link sizes="180x180" href="/icons/apple-touch-icon.png" />
+          <link rel="apple-touch-startup-image" href="/icons/apple-splash-750-1334.jpg" />
+
+          <meta name="format-detection" content="telephone=no" />
+
           <link rel="manifest" href="/manifest.json" />
-          <link rel="icon" href="/icons/favicon.ico" />
+          <link rel="icon" href="/favicon/favicon.ico" />
         </Head>
         <body>
           <Main />
@@ -32,7 +33,7 @@ MyDocument.getInitialProps = async (ctx) => {
   const initialProps = await Document.getInitialProps(ctx)
 
   // Create Emotion cache
-  const direction = i18n?.availableLocales?.[ctx.locale]?.direction
+  const direction = i18n?.availableLocales?.[ctx.locale ?? 'en']?.direction as Direction
   const cache = createEmotionCache(direction)
 
   // Extract styles from html
@@ -43,7 +44,7 @@ MyDocument.getInitialProps = async (ctx) => {
   ctx.renderPage = () =>
     originalRenderPage({
       enhanceApp: (App) =>
-        function EnhanceApp(props) {
+        function EnhanceApp(props: any) {
           return <App serverEmotionCache={cache} {...props} />
         },
     })

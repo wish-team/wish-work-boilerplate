@@ -1,8 +1,7 @@
-import { persistReducer } from 'redux-persist'
 import { combineReducers } from 'redux'
-
-import { appSlice } from './slices'
+import { persistReducer } from 'redux-persist'
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
+import appReducer from './slices/appSlice'
 
 /*
 	redux-persist error in server came from this file.
@@ -13,13 +12,13 @@ import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
 const createNoopStorage = () => {
   return {
-    getItem(_key: unknown) {
+    getItem() {
       return Promise.resolve(null)
     },
     setItem(_key: unknown, value: unknown) {
       return Promise.resolve(value)
     },
-    removeItem(_key: unknown) {
+    removeItem() {
       return Promise.resolve()
     },
   }
@@ -35,7 +34,7 @@ const rootPersistConfig = {
 }
 
 const rootReducer = combineReducers({
-  app: appSlice.reducer,
+  app: appReducer,
 })
 
 export default persistReducer(rootPersistConfig, rootReducer)

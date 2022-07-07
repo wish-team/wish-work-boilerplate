@@ -11,22 +11,11 @@ const nextConfig = {
   images: {
     domains: ['media.graphcms.com'],
   },
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    // ignoreBuildErrors: true,
-  },
   reactStrictMode: true,
   pwa: {
     dest: 'public',
-    register: true,
     skipWaiting: true,
     disable: process.env.NODE_ENV === 'development',
-  },
-  experimental: {
-    scrollRestoration: true,
   },
   i18n,
 }

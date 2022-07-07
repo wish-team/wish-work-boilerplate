@@ -28,4 +28,6 @@ const appSlice = createSlice({
   },
 })
 
-export default appSlice
+export const { setTheme, toggleTheme, toggleLoading } = appSlice.actions
+
+export default appSlice.reducer

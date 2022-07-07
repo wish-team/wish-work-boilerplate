@@ -20,24 +20,18 @@
   },
   "rules": {
     "object-curly-spacing": ["warn", "always"],
-    "no-unused-vars": [
-      "warn",
-      {
-        "vars": "all",
-        "args": "none"
-      }
-    ],
+    "no-unused-vars": "off",
     "@typescript-eslint/semi": ["off"],
     "@typescript-eslint/no-empty-interface": ["off"],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
         "vars": "all",
-        "args": "none"
+        "args": "after-used"
       }
     ],
     "@typescript-eslint/no-explicit-any": [
-      "error",
+      "warn",
       {
         "ignoreRestArgs": true
       }
@@ -67,6 +61,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-wrap-multilines": "off",
     "react/destructuring-assignment": "off",
-    "no-console": "warn"
+    "no-console": "warn",
+    "no-alert": "warn"
   }
 }

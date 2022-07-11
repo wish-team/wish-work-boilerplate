@@ -17,7 +17,7 @@ const configTheme = ({ direction, mode, fontFamily }) => {
 			mode,
 		},
 		typography: {
-			...typography,
+			// ...typography,
 			fontFamily,
 		},
 	});

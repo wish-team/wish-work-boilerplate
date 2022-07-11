@@ -5,7 +5,13 @@
 Download the example [or clone the repo](https://github.com/wish-team/nextjs-boilerplate):
 
 ```
-curl https://codeload.github.com/wish-team/nextjs-boilerplate/tar.gz/restructre | tar -xz --strip=2 nextjs-boilerplate-restructre/examples/with-mui-auth
+curl https://codeload.github.com/wish-team/wish-work-boilerplate/tar.gz/main | tar -xz --strip=2 wish-work-boilerplate-main/next-boilerplate/with-mui-auth
+```
+
+change the directory:
+
+```sh
+cd with-mui-auth
 ```
 
 Install it and run:

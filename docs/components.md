@@ -7,3 +7,5 @@
 ## How to use Data Table
 
 ## How to use Modal
+
+## How to use Fetcher

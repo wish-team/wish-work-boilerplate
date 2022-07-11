@@ -41,6 +41,7 @@ const WithStyle = ({ children, serverEmotionCache }) => {
 		if (process.browser) {
 			const body = document.getElementsByTagName('body')[0]
 			body.setAttribute('dir', direction)
+			console.log(fontFamily)
 		}
 		return configTheme({ direction, mode: mode, fontFamily })
 	}, [locale, mode])

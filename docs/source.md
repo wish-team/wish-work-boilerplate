@@ -1,4 +1,6 @@
 ## Algorithm
+Given a problem, an algorithm \mathcal{A}A is a set of well-defined instructions that runs in a finite amount of time and space. It receives an input II and returns an output OO that satisfies the constraints of the problem.
+
 visit [Here](https://superstudy.guide/).
 
 ## Software Architecture

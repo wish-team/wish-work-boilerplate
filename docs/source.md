@@ -1,7 +1,10 @@
-## Algorithm
+## Algorithm and Data Structure
 Given a problem, an algorithm \mathcal{A}A is a set of well-defined instructions that runs in a finite amount of time and space. It receives an input II and returns an output OO that satisfies the constraints of the problem.
 
-visit [Here](https://superstudy.guide/).
+As an example, a problem can be to check whether a number is even. In order to do that, an algorithm could be to check whether the number is divisible by 2.
+
+
+visit [Here](https://superstudy.guide/) for more information.
 
 ## Software Architecture
 Architecture is a tricky subject for the customers and users of software products - as it isn't something they immediately perceive. But a poor architecture is a major contributor to the growth of cruft - elements of the software that impede the ability of developers to understand the software. Software that contains a lot of cruft is much harder to modify, leading to features that arrive more slowly and with more defects.

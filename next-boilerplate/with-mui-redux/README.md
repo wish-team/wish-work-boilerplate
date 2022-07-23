@@ -5,7 +5,7 @@
 Download the example [or clone the repo](https://github.com/wish-team/nextjs-boilerplate):
 
 ```
-curl https://codeload.github.com/wish-team/nextjs-boilerplate/tar.gz/restructre | tar -xz --strip=2 nextjs-boilerplate-restructre/examples/with-mui-redux
+curl https://codeload.github.com/wish-team/wish-work-boilerplate/tar.gz/restructre | tar -xz --strip=2 wish-work-boilerplate-main/next-boilerplate/with-mui-redux
 ```
 
 Install it and run:

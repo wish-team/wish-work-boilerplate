@@ -103,7 +103,16 @@ const Page = () => {
 Page.getLayout = (page: React.ReactElement) => {
   return (
     <>
-      <CustomHead title="meta.title" openGraphTitle="head.title" />
+      <CustomHead
+        title="meta.title"
+        summaryCardTitle="head.title"
+        metaTitle={''}
+        metaTitleContent={''}
+        url={''}
+        description={''}
+        image={''}
+        twitterCardImage={''}
+      />
       {page}
     </>
   )

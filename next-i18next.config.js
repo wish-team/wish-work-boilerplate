@@ -47,7 +47,7 @@ module.exports = {
     locales: ['fa', 'en', 'de'],
     localeDetection: false,
 
-    // custom config
+    //custom config
     availableLocales: {
       fa: {
         key: 'fa',

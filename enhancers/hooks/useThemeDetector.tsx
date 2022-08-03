@@ -20,6 +20,8 @@ const useThemeDetector = () => {
       dispatch(setTheme(preferredTheme))
     }
   }, [dispatch, isDark, theme])
+
+  return theme
 }
 
 export default useThemeDetector

@@ -9,7 +9,7 @@ export type Props = {
 
 const WithRedux = ({ children }: Props) => (
   <Provider store={store}>
-    <PersistGate persistor={persistor} loading={null}>
+    <PersistGate persistor={persistor} loading={children}>
       {children}
     </PersistGate>
   </Provider>

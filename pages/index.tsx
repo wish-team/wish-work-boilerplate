@@ -5,7 +5,11 @@ import { useAppDispatch } from 'redux/hooks'
 import { toggleTheme } from 'redux/slices/appSlice'
 
 // material ui
-import { Box, Button, Grid, Link as MaterialLink, Typography } from '@mui/material'
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
+import MaterialLink from '@mui/material/Link'
+import Typography from '@mui/material/Typography'
 
 // emotion
 import styled from '@emotion/styled'
@@ -19,7 +23,7 @@ import { useRouter } from 'next/router'
 import CustomHead from 'enhancers/CustomHead'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import i18nConfig from '../i18n'
+import i18nConfig from '../next-i18next.config'
 
 // react spring
 import { animated, useTrail } from 'react-spring'
@@ -29,7 +33,7 @@ const HeadText = styled.div``
 const Page = () => {
   const { t } = useTranslation('common')
   const WORD_TRANS = t('title.head').split('')
-  // const words = useRef(WORD_TRANS.map((_, index) => index))
+
   const [springs] = useTrail(WORD_TRANS.length, () => ({
     from: { opacity: 0.1, x: 10 },
     to: { opacity: 1, x: 0 },
@@ -50,7 +54,7 @@ const Page = () => {
           ))}
         </HeadText>
         <Typography variant="subtitle1" color="text.secondary">
-          <Link href={router.pathname} locale="en" passHref>
+          <Link href={router.asPath} locale="en" passHref>
             <MaterialLink
               sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' }, margin: 2 }}
               underline="none"
@@ -61,7 +65,7 @@ const Page = () => {
           </Link>
         </Typography>
         <Typography variant="subtitle1">
-          <Link href={router.pathname} locale="de" passHref>
+          <Link href={router.asPath} locale="de" passHref>
             <MaterialLink
               sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' }, margin: 2 }}
               underline="none"
@@ -72,7 +76,7 @@ const Page = () => {
           </Link>
         </Typography>
         <Typography variant="subtitle1">
-          <Link href={router.pathname} locale="fa" passHref>
+          <Link href={router.asPath} locale="fa" passHref>
             <MaterialLink
               sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' }, margin: 2 }}
               underline="none"
@@ -105,13 +109,12 @@ Page.getLayout = (page: React.ReactElement) => {
     <>
       <CustomHead
         title="meta.title"
-        summaryCardTitle="head.title"
+        summaryCardTitle="title.head"
         metaTitle={''}
         metaTitleContent={''}
         url={''}
         description={''}
         image={''}
-        twitterCardImage={''}
       />
       {page}
     </>

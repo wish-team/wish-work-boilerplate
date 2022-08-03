@@ -5,9 +5,10 @@ const withPWA = require('next-pwa')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
-const { i18n } = require('./i18n')
+const { i18n } = require('./next-i18next.config')
 
 const nextConfig = {
+  i18n,
   images: {
     domains: ['media.graphcms.com'],
   },
@@ -17,7 +18,6 @@ const nextConfig = {
     skipWaiting: true,
     disable: process.env.NODE_ENV === 'development',
   },
-  i18n,
 }
 
 module.exports = withPlugins([[withBundleAnalyzer], [withPWA]], nextConfig)

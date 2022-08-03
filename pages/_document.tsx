@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
 import createEmotionCache from 'enhancers/createEmotionCache'
-import { i18n } from '../i18n'
+import { i18n } from '../next-i18next.config'
 import { Direction } from 'theme/type'
 
 class MyDocument extends Document {

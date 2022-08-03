@@ -18,7 +18,7 @@ export type ThemeObject = {
 
 declare module '@mui/material/styles' {
   export interface Theme {
-    shape: {
+    shape?: {
       borderRadius: Record<BorderRadius, number>
       headerHeight: number
       siderWidth?: number
@@ -27,7 +27,7 @@ declare module '@mui/material/styles' {
 
   // allow configuration using `createTheme`
   export interface ThemeOptions {
-    shape: {
+    shape?: {
       borderRadius: Record<BorderRadius, number>
       headerHeight: number
       siderWidth?: number

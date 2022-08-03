@@ -1,7 +1,7 @@
 import InstallPWA from 'components/PWA/InstallPWA'
 import { GetStaticProps } from 'next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import i18nConfig from '../i18n'
+import i18nConfig from '../next-i18next.config'
 
 const PWA = () => {
   return <InstallPWA />

@@ -1,5 +1,6 @@
 import { Typography, Box, Button, Modal } from '@mui/material'
 import useIosInstallPrompt from 'enhancers/hooks/PWAHooks/useIosInstallPrompt'
+import usePWANotSupportedPrompt from 'enhancers/hooks/PWAHooks/usePWANotSupportedPrompt'
 import useWebInstallPrompt from 'enhancers/hooks/PWAHooks/useWebInstallPrompt'
 
 const style = {
@@ -19,9 +20,9 @@ const InstallPWA = () => {
   const [webInstallPrompt, handleWebInstallDeclined, handleWebInstallAccepted] =
     useWebInstallPrompt()
 
-  if (!iosInstallPrompt && !webInstallPrompt) {
-    return null
-  }
+  const [notifyUserAboutPWANotSupported, handleNotifcationDeclined] = usePWANotSupportedPrompt()
+
+  if (!iosInstallPrompt && !webInstallPrompt && !notifyUserAboutPWANotSupported) return null
 
   return (
     <Modal open>
@@ -29,19 +30,29 @@ const InstallPWA = () => {
         <Typography variant="h6" component="h2">
           Install App
         </Typography>
-        {iosInstallPrompt && (
+        {iosInstallPrompt ? (
           <>
             <Typography>Tap Share then &quot;Add to Home Screen&quot;</Typography>
             <div>
               <Button onClick={handleIOSInstallDeclined}>Close</Button>
             </div>
           </>
-        )}
-        {webInstallPrompt && (
+        ) : webInstallPrompt ? (
           <div>
             <Button onClick={handleWebInstallAccepted}>Install</Button>
             <Button onClick={handleWebInstallDeclined}>Close</Button>
           </div>
+        ) : notifyUserAboutPWANotSupported ? (
+          <>
+            <Typography variant="h4">
+              It seems like you are on unsupported device, use safari on ios or chrome on desktop
+            </Typography>
+            <div>
+              <Button onClick={handleNotifcationDeclined}>Close</Button>
+            </div>
+          </>
+        ) : (
+          ''
         )}
       </Box>
     </Modal>

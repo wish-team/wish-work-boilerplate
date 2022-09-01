@@ -5,10 +5,6 @@ export type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type Direction = 'ltr' | 'rtl'
 export type ThemeMode = 'light' | 'dark'
 
-/*
-  made siderWidth optional since it was missing in the shape.ts
-*/
-
 export type ThemeObject = {
   fontFamily?: React.CSSProperties['fontFamily']
   direction: Direction

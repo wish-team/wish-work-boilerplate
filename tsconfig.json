@@ -19,9 +19,8 @@
     "strictNullChecks": true
   },
   "paths": {
-    // "i18n.conf": ["./next-i18next.config.js"]
     "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
   "exclude": ["node_modules"]
 }

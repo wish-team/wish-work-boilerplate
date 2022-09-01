@@ -1,15 +1,14 @@
+import { EmotionCache } from '@emotion/react'
+import InstallPWA from 'components/PWA/InstallPWA'
 import type { NextPage } from 'next'
 import { appWithTranslation } from 'next-i18next'
+import nextI18nextConfig from 'next-i18next.config'
 import type { AppProps } from 'next/app'
-import type { ReactElement, ReactNode } from 'react'
-
-// Components
-import { EmotionCache } from '@emotion/react'
-import WithRedux from 'enhancers/withRedux'
 import Head from 'next/head'
+import type { ReactElement, ReactNode } from 'react'
+import { initializeStore, Provider } from 'store/store'
 import PageWrapper from '../components/Layout/PageWrapper'
 import WithStyle from '../enhancers/withStyle'
-import nextI18nextConfig from 'next-i18next.config'
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -22,17 +21,21 @@ type AppPropsWithLayout = AppProps & {
 
 const App = (props: AppPropsWithLayout) => {
   const { Component, serverEmotionCache, pageProps } = props
+
+  const createStore = () => initializeStore(pageProps.initialState)
+
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
-    <WithRedux>
+    <Provider createStore={createStore}>
       <WithStyle serverEmotionCache={serverEmotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <PageWrapper>{getLayout(<Component {...pageProps} />)}</PageWrapper>
+        <InstallPWA />
       </WithStyle>
-    </WithRedux>
+    </Provider>
   )
 }
 

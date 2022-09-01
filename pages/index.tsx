@@ -1,32 +1,20 @@
-import React from 'react'
-
-// redux
-import { useAppDispatch } from 'redux/hooks'
-import { toggleTheme } from 'redux/slices/appSlice'
-
-// material ui
+import styled from '@emotion/styled'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import MaterialLink from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
-
-// emotion
-import styled from '@emotion/styled'
-
-// next
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
-// translation
 import CustomHead from 'enhancers/CustomHead'
+import type { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import i18nConfig from '../next-i18next.config'
-
-// react spring
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React from 'react'
 import { animated, useTrail } from 'react-spring'
+import getInitialState from 'store/getInitialState'
+import { useStore } from 'store/store'
+import i18nConfig from '../next-i18next.config'
 
 const HeadText = styled.div``
 
@@ -39,7 +27,8 @@ const Page = () => {
     to: { opacity: 1, x: 0 },
     loop: { reverse: true },
   }))
-  const dispatch = useAppDispatch()
+
+  const toggleTheme = useStore((state) => state.toggleTheme)
 
   const router = useRouter()
 
@@ -91,12 +80,7 @@ const Page = () => {
             Wish Work NEXT JS Boilerplate
           </Typography>
         </Box>
-        <Button
-          variant="outlined"
-          onClick={() => {
-            dispatch(toggleTheme())
-          }}
-        >
+        <Button variant="outlined" onClick={toggleTheme}>
           {t('title.theme')}
         </Button>
       </Grid>
@@ -121,9 +105,10 @@ Page.getLayout = (page: React.ReactElement) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+export const getServerSideProps: GetServerSideProps = async ({ locale, req }) => ({
   props: {
     locale,
+    initialState: getInitialState(req.headers),
     ...(await serverSideTranslations(locale ?? '', ['common'], i18nConfig)),
   },
 })

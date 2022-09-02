@@ -7,6 +7,10 @@ const getInitialState = (headers: IncomingHttpHeaders): PersistedState => {
   if (headers.cookie) {
     const cookies = Cookie.parse(headers.cookie)
 
+    if (!cookies[storageName]) {
+      return JSON.parse(initialStateJSON)
+    }
+
     const state = JSON.parse(
       decompressFromEncodedURIComponent(cookies[storageName]) ?? initialStateJSON
     )

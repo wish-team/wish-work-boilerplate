@@ -1,4 +1,5 @@
-import createCache, { StylisPlugin } from '@emotion/cache'
+import type { StylisPlugin } from '@emotion/cache';
+import createCache from '@emotion/cache'
 import rtlPlugin from 'stylis-plugin-rtl'
 import type { Direction } from 'theme/type'
 

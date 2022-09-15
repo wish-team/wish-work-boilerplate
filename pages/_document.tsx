@@ -2,7 +2,7 @@ import createEmotionServer from '@emotion/server/create-instance'
 import { availableLocales } from 'enhancers/configs/availableLocales'
 import createEmotionCache from 'enhancers/createEmotionCache'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
-import { Direction } from 'theme/type'
+import type { Direction } from 'theme/type'
 
 class MyDocument extends Document {
   render() {

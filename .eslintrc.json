@@ -62,6 +62,7 @@
     "react/jsx-wrap-multilines": "off",
     "react/destructuring-assignment": "off",
     "no-console": "warn",
-    "no-alert": "warn"
+    "no-alert": "warn",
+    "@typescript-eslint/consistent-type-imports": "warn"
   }
 }

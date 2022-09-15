@@ -1,7 +1,8 @@
 import Cookie from 'cookie'
 import type { IncomingHttpHeaders } from 'http'
 import { decompressFromEncodedURIComponent } from 'lz-string'
-import { initialStateJSON, PersistedState, storageName } from './store'
+import type { PersistedState } from './store';
+import { initialStateJSON, storageName } from './store'
 
 const getInitialState = (headers: IncomingHttpHeaders): PersistedState => {
   if (headers.cookie) {

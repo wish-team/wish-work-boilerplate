@@ -1,5 +1,5 @@
-import React from 'react'
-import { Theme as MaterialTheme } from '@mui/material/styles'
+import type React from 'react'
+import type { Theme as MaterialTheme } from '@mui/material/styles'
 
 export type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type Direction = 'ltr' | 'rtl'

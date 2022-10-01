@@ -2,6 +2,8 @@ import { Typography, Box, Button, Modal } from '@mui/material'
 import useIosInstallPrompt from 'enhancers/hooks/PWAHooks/useIosInstallPrompt'
 import usePWANotSupportedPrompt from 'enhancers/hooks/PWAHooks/usePWANotSupportedPrompt'
 import useWebInstallPrompt from 'enhancers/hooks/PWAHooks/useWebInstallPrompt'
+import MoreVertIcon from '@mui/icons-material/MoreVert'
+import useFirefoxAndroidDetect from 'enhancers/hooks/PWAHooks/useFirefoxAndroidDetect'
 
 const style = {
   position: 'absolute' as const,
@@ -22,7 +24,15 @@ const InstallPWA = () => {
 
   const [notifyUserAboutPWANotSupported, handleNotifcationDeclined] = usePWANotSupportedPrompt()
 
-  if (!iosInstallPrompt && !webInstallPrompt && !notifyUserAboutPWANotSupported) return null
+  const [firefoxAndroidPrompt, handleFirefoxAndroidDeclined] = useFirefoxAndroidDetect()
+
+  if (
+    !iosInstallPrompt &&
+    !webInstallPrompt &&
+    !notifyUserAboutPWANotSupported &&
+    !firefoxAndroidPrompt
+  )
+    return null
 
   return (
     <Modal open>
@@ -51,9 +61,18 @@ const InstallPWA = () => {
               <Button onClick={handleNotifcationDeclined}>Close</Button>
             </div>
           </>
-        ) : (
-          ''
-        )}
+        ) : firefoxAndroidPrompt ? (
+          <>
+            <Typography variant="caption" color="grey.light" display="flex" alignItems="center">
+              Tap
+              <MoreVertIcon sx={{ color: '#2E7DF7', mx: '.3ch', pb: '.2em' }} />
+              and select Install.
+            </Typography>
+            <div>
+              <Button onClick={handleFirefoxAndroidDeclined}>Close</Button>
+            </div>
+          </>
+        ) : null}
       </Box>
     </Modal>
   )

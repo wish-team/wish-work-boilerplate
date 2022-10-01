@@ -1,10 +1,4 @@
 export const availableLocales = {
-  fa: {
-    key: 'fa',
-    label: 'فارسی',
-    direction: 'rtl',
-    fontFamily: ['Peyda'],
-  },
   en: {
     key: 'en',
     label: 'English',

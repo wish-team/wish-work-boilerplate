@@ -64,17 +64,6 @@ const Page = () => {
             </MaterialLink>
           </Link>
         </Typography>
-        <Typography variant="subtitle1">
-          <Link href={router.asPath} locale="fa" passHref>
-            <MaterialLink
-              sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' }, margin: 2 }}
-              underline="none"
-              href=""
-            >
-              Persian
-            </MaterialLink>
-          </Link>
-        </Typography>
         <Box m={16}>
           <Typography variant="subtitle2" color="text.primary">
             Wish Work NEXT JS Boilerplate

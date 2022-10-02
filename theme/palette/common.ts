@@ -1,6 +1,7 @@
+import type { PaletteOptions } from '@mui/material'
 import { colors } from '@mui/material'
 
-const common = {
+const common: PaletteOptions = {
   primary: {
     main: '#D1036F',
     contrastText: 'white',
@@ -32,11 +33,6 @@ const common = {
     contrastText: 'white',
     dark: colors.green[900],
     light: colors.green[400],
-  },
-  grey: {
-    main: colors.grey[700],
-    grey1: '#A8A8A8',
-    ...colors.grey,
   },
 }
 

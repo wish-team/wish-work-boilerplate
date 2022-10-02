@@ -1,28 +1,27 @@
 import { createTheme } from '@mui/material/styles'
-
-// import components from './components';
-import shape from './shape'
-import palette from './palette'
+import common from './palette/common'
+import dark from './palette/dark'
+import light from './palette/light'
+import type { Direction, ThemeMode } from './type'
 import typography from './typography'
-// import background from './background';
 
-/*
-  have changed configure.js to configure.ts & fixed the errors
-*/
+interface ConfigThemeProps {
+  direction: Direction
+  mode: ThemeMode
+  fontFamily: string[]
+}
 
-const configTheme = ({ direction, mode, fontFamily }) => {
+const configTheme = ({ direction, mode, fontFamily }: ConfigThemeProps) => {
   const theme = createTheme({
     direction,
-    // components,
-    shape,
     palette: {
-      ...palette.common,
-      ...palette[mode],
+      ...common,
+      ...(mode === 'light' ? light : dark),
       mode,
     },
     typography: {
       ...typography,
-      fontFamily,
+      fontFamily: fontFamily.join(', '),
     },
   })
 

@@ -18,6 +18,9 @@ class MyDocument extends Document {
 
           <link rel="manifest" href="/manifest.json" />
           <link rel="icon" href="/favicon/favicon.ico" />
+
+          <link href={'/fonts/Ridley/style.css'} rel="stylesheet" />
+          <link href={'/fonts/Peyda/style.css'} rel="stylesheet" />
         </Head>
         <body>
           <Main />

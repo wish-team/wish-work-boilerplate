@@ -1,4 +1,4 @@
-import { fontWeight } from '@mui/system'
+import type { TypographyOptions } from '@mui/material/styles/createTypography'
 
 /* 
   TypeError
@@ -6,7 +6,7 @@ import { fontWeight } from '@mui/system'
   to comply with MUI types for typography
 */
 
-const typography = {
+const typography: TypographyOptions = {
   h1: {
     fontWeight: 'bold',
     fontSize: '104px',

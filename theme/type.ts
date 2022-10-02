@@ -1,7 +1,6 @@
-import type React from 'react'
 import type { Theme as MaterialTheme } from '@mui/material/styles'
+import type React from 'react'
 
-export type BorderRadius = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 export type Direction = 'ltr' | 'rtl'
 export type ThemeMode = 'light' | 'dark'
 
@@ -13,24 +12,42 @@ export type ThemeObject = {
 }
 
 declare module '@mui/material/styles' {
-  export interface Theme {
-    shape?: {
-      borderRadius: Record<BorderRadius, number>
-      headerHeight: number
-      siderWidth?: number
+  // adding typography variants
+  interface TypographyVariants {
+    title: React.CSSProperties
+    paragraph: React.CSSProperties
+    link: React.CSSProperties
+  }
+
+  interface TypographyVariantsOptions {
+    title?: React.CSSProperties
+    paragraph?: React.CSSProperties
+    link?: React.CSSProperties
+  }
+
+  // adding colors
+  interface Palette {
+    border?: {
+      default: string
     }
   }
 
-  // allow configuration using `createTheme`
-  export interface ThemeOptions {
-    shape?: {
-      borderRadius: Record<BorderRadius, number>
-      headerHeight: number
-      siderWidth?: number
+  interface PaletteOptions {
+    border?: {
+      default: string
     }
   }
 }
 
 declare module '@emotion/react' {
   export interface Theme extends MaterialTheme {}
+}
+
+declare module '@mui/material/Typography' {
+  // updating the Typography's variant options
+  interface TypographyPropsVariantOverrides {
+    title: true
+    paragraph: true
+    link: true
+  }
 }

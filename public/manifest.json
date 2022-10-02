@@ -34,13 +34,6 @@
       "description": "Go straight to Login Page",
       "url": "/login",
       "icons": [{ "src": "/icons/manifest-icon-192.maskable.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Signup as a Contractor",
-      "short_name": "Something",
-      "description": "Go straight to Signup Page",
-      "url": "/signup/contractor",
-      "icons": [{ "src": "/icons/manifest-icon-192.maskable.png", "sizes": "192x192" }]
     }
   ],
   "theme_color": "#FFFFFF",

@@ -3,12 +3,12 @@ export const availableLocales = {
     key: 'en',
     label: 'English',
     direction: 'ltr',
-    fontFamily: ['Ridley', 'Rotunda'],
+    fontFamily: ['"Ridley"', '"Rotunda"'],
   },
   de: {
     key: 'de',
     label: 'Dutch',
     direction: 'ltr',
-    fontFamily: ['Ridley', 'Rotunda'],
+    fontFamily: ['"Ridley"', '"Rotunda"'],
   },
 }

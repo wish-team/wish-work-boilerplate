@@ -1,5 +1,5 @@
 import createCache from '@emotion/cache'
-import type { Direction } from 'theme/type'
+import type { Direction } from '@/theme/type'
 
 // prepend: true moves MUI styles to the top of the <head> so they're loaded first.
 /*

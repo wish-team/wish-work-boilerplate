@@ -8,7 +8,7 @@ import typography from './typography'
 interface ConfigThemeProps {
   direction: Direction
   mode: ThemeMode
-  fontFamily: string[]
+  fontFamily: readonly string[]
 }
 
 const configTheme = ({ direction, mode, fontFamily }: ConfigThemeProps) => {

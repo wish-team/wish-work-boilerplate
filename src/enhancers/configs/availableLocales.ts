@@ -11,4 +11,6 @@ export const availableLocales = {
     direction: 'ltr',
     fontFamily: ['"Ridley"', '"Rotunda"'],
   },
-}
+} as const
+
+export type AvailableLocales = keyof typeof availableLocales

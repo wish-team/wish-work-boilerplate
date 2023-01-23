@@ -1,10 +1,6 @@
 import styled from '@emotion/styled'
-import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Grid from '@mui/material/Grid'
-import MaterialLink from '@mui/material/Link'
-import Typography from '@mui/material/Typography'
-import CustomHead from 'enhancers/CustomHead'
+import { Box, Button, Grid, Typography } from '@mui/material'
+import CustomHead from '@/enhancers/CustomHead'
 import type { GetServerSideProps } from 'next'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -12,9 +8,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { animated, useTrail } from 'react-spring'
-import getInitialState from 'store/getInitialState'
-import { useStore } from 'store/store'
-import i18nConfig from '../next-i18next.config'
+import getInitialState from '@/store/getInitialState'
+import { useStore } from '@/store/store'
+import i18nConfig from 'next-i18next.config'
 
 const HeadText = styled.div``
 
@@ -42,26 +38,29 @@ const Page = () => {
             </Typography>
           ))}
         </HeadText>
-        <Typography variant="subtitle1" color="text.secondary">
-          <Link href={router.asPath} locale="en" passHref>
-            <MaterialLink
-              sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' }, margin: 2 }}
-              underline="none"
-              href=""
-            >
-              English
-            </MaterialLink>
+        <Typography
+          variant="subtitle1"
+          color="text.secondary"
+          sx={{
+            color: 'text.primary',
+            '&:hover': { color: 'primary.main' },
+            margin: 2,
+          }}
+        >
+          <Link href={router.asPath} locale="en" style={{ textDecoration: 'none' }}>
+            English
           </Link>
         </Typography>
-        <Typography variant="subtitle1">
-          <Link href={router.asPath} locale="de" passHref>
-            <MaterialLink
-              sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' }, margin: 2 }}
-              underline="none"
-              href=""
-            >
-              Dutch
-            </MaterialLink>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            color: 'text.primary',
+            '&:hover': { color: 'primary.main' },
+            margin: 2,
+          }}
+        >
+          <Link href={router.asPath} locale="de" style={{ textDecoration: 'none' }}>
+            Dutch
           </Link>
         </Typography>
         <Box m={16}>
@@ -94,12 +93,12 @@ Page.getLayout = (page: React.ReactElement) => {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ locale, req }) => ({
+export const getServerSideProps = (async ({ locale, req }) => ({
   props: {
     locale,
     initialState: getInitialState(req.headers),
     ...(await serverSideTranslations(locale ?? '', ['common'], i18nConfig)),
   },
-})
+})) satisfies GetServerSideProps
 
 export default Page

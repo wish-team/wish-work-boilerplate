@@ -9,7 +9,7 @@ const setInstallPromptSeen = (promptName: string): void => {
 }
 
 const getUserShouldBePromptedToInstall = (promptName: string): boolean => {
-  const timeToWaitBeforePromptingAgain = 60 * 1000 // 60 seconds
+  const timeToWaitBeforePromptingAgain = 4554545460 * 1000 // 60 seconds
   const lastSeenPrompt = getInstallPromptLastSeenAt(promptName)
 
   if (!lastSeenPrompt) {

@@ -31,9 +31,10 @@ const useWebInstallPrompt = (): [BeforeInstallPromptEvent | null, () => void, ()
         setInstallPromptEvent(event)
       }
     }
-    window.addEventListener('beforeinstallprompt', beforeInstallPromptHandler)
+    window.addEventListener('beforeinstallprompt', beforeInstallPromptHandler as any)
 
-    return () => window.removeEventListener('beforeinstallprompt', beforeInstallPromptHandler)
+    return () =>
+      window.removeEventListener('beforeinstallprompt', beforeInstallPromptHandler as any)
   }, [userShouldBePromptedToInstall])
 
   const handleInstallDeclined = () => {

@@ -1,9 +1,9 @@
 import { Typography, Box, Button, Modal } from '@mui/material'
-import useIosInstallPrompt from 'enhancers/hooks/PWAHooks/useIosInstallPrompt'
-import usePWANotSupportedPrompt from 'enhancers/hooks/PWAHooks/usePWANotSupportedPrompt'
-import useWebInstallPrompt from 'enhancers/hooks/PWAHooks/useWebInstallPrompt'
+import useIosInstallPrompt from '@/enhancers/hooks/PWAHooks/useIosInstallPrompt'
+import usePWANotSupportedPrompt from '@/enhancers/hooks/PWAHooks/usePWANotSupportedPrompt'
+import useWebInstallPrompt from '@/enhancers/hooks/PWAHooks/useWebInstallPrompt'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
-import useFirefoxAndroidDetect from 'enhancers/hooks/PWAHooks/useFirefoxAndroidDetect'
+import useFirefoxAndroidDetect from '@/enhancers/hooks/PWAHooks/useFirefoxAndroidDetect'
 
 const style = {
   position: 'absolute' as const,

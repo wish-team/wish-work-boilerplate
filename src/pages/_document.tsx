@@ -1,8 +1,9 @@
 import createEmotionServer from '@emotion/server/create-instance'
-import { availableLocales } from 'enhancers/configs/availableLocales'
-import createEmotionCache from 'enhancers/createEmotionCache'
+import type { AvailableLocales } from '@/enhancers/configs/availableLocales'
+import { availableLocales } from '@/enhancers/configs/availableLocales'
+import createEmotionCache from '@/enhancers/createEmotionCache'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
-import type { Direction } from 'theme/type'
+import type { Direction } from '@/theme/type'
 
 class MyDocument extends Document {
   render() {
@@ -35,7 +36,8 @@ MyDocument.getInitialProps = async (ctx) => {
   const initialProps = await Document.getInitialProps(ctx)
 
   // Create Emotion cache
-  const direction = availableLocales[ctx.locale ?? 'en']?.direction as Direction
+  const direction = availableLocales[(ctx.locale as AvailableLocales) ?? 'en']
+    ?.direction as Direction
   const cache = createEmotionCache(direction)
 
   // Extract styles from html

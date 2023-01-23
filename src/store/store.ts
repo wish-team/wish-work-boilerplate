@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
-import type { ThemeMode } from 'theme/type'
+import type { ThemeMode } from '@/theme/type'
 import type { StoreApi } from 'zustand'
 import create from 'zustand'
 import createContext from 'zustand/context'

@@ -1,5 +1,5 @@
 import type { PaletteOptions } from '@mui/material'
-import { colors } from '@mui/material'
+import { red, yellow, green } from '@mui/material/colors'
 
 const common: PaletteOptions = {
   primary: {
@@ -13,26 +13,26 @@ const common: PaletteOptions = {
   error: {
     main: '#f46a6a',
     contrastText: 'white',
-    dark: colors.red[900],
-    light: colors.red[400],
+    dark: red[900],
+    light: red[400],
   },
   warning: {
     main: '#f1b44c',
     contrastText: 'white',
-    dark: colors.yellow[900],
-    light: colors.yellow[400],
+    dark: yellow[900],
+    light: yellow[400],
   },
   success: {
     main: '#34c38f',
     contrastText: 'white',
-    dark: colors.green[900],
-    light: colors.green[400],
+    dark: green[900],
+    light: green[400],
   },
   info: {
     main: '#0070F3',
     contrastText: 'white',
-    dark: colors.green[900],
-    light: colors.green[400],
+    dark: green[900],
+    light: green[400],
   },
 }
 

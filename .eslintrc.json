@@ -31,11 +31,11 @@
       }
     ],
     "react/jsx-key": "error",
-    "import/no-extraneous-dependencies": "error",
     "react/jsx-props-no-spreading": "off",
     "import/prefer-default-export": "off",
     "no-console": "warn",
     "no-alert": "warn",
-    "@typescript-eslint/consistent-type-imports": "warn"
+    "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/no-namespace": "off"
   }
 }

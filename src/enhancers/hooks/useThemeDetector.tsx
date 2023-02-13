@@ -11,8 +11,6 @@ const useThemeDetector = () => {
   const setTheme = useStore((state) => state.setTheme)
   const [isDark] = useState(getPreferredTheme())
 
-  console.log('useThemeDetector', theme)
-
   useEffect(() => {
     if (!theme) {
       const preferredTheme = isDark ? 'dark' : 'light'

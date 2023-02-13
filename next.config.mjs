@@ -1,17 +1,23 @@
-const withPWA = require('next-pwa')({
+process.env.ENV_VALIDATION === 'true' && (await import('./src/env/env.mjs'))
+
+import NEXT_PWA from 'next-pwa'
+import BUNDLE_ANALYZER from '@next/bundle-analyzer'
+
+const withPWA = NEXT_PWA({
   dest: 'public',
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
 })
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+const withBundleAnalyzer = BUNDLE_ANALYZER({
   enabled: process.env.ANALYZE === 'true',
 })
-const { i18n } = require('./next-i18next.config')
+
+import i18nextConfig from './next-i18next.config.js'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n,
+  i18n: i18nextConfig.i18n,
   reactStrictMode: true,
   modularizeImports: {
     '@mui/material': {
@@ -32,4 +38,4 @@ const nextConfig = {
   },
 }
 
-module.exports = withBundleAnalyzer(withPWA(nextConfig))
+export default withBundleAnalyzer(withPWA(nextConfig))

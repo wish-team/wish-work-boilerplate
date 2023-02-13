@@ -9,7 +9,11 @@ import { persist } from 'zustand/middleware'
 
 export const storageName = 'wishwork-boilerplate'
 
-export const initialState: PersistedState = { loading: false, theme: undefined }
+export const initialState: PersistedState = {
+  loading: false,
+  theme: undefined,
+  token: undefined,
+}
 export const initialStateJSON = JSON.stringify(initialState)
 
 const CookieStorage: StateStorage = {
@@ -27,6 +31,7 @@ const CookieStorage: StateStorage = {
 export interface PersistedState {
   loading: boolean
   theme: ThemeMode | undefined
+  token: string | undefined
 }
 
 interface StoreInterface extends PersistedState {
@@ -66,7 +71,7 @@ export const initializeStore = (preloadedState: Partial<PersistedState>) => {
       {
         name: storageName,
         getStorage: () => CookieStorage,
-        partialize: (state) => ({ loading: state.loading, theme: state.theme }),
+        partialize: (state) => ({ loading: state.loading, theme: state.theme, token: state.token }),
         serialize: (state) => compressToEncodedURIComponent(JSON.stringify(state)),
         deserialize: (str) =>
           JSON.parse(decompressFromEncodedURIComponent(str) ?? initialStateJSON),

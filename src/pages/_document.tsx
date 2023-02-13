@@ -10,7 +10,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
           <meta name="theme-color" content="#000" />
 
           <link rel="apple-touch-startup-image" href="/icons/apple-splash-750-1334.jpg" />

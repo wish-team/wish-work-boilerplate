@@ -1,20 +1,20 @@
-import type { EmotionCache } from '@emotion/react'
+import PageWrapper from '@/components/Layout/PageWrapper'
 import InstallPWA from '@/components/PWA/InstallPWA'
 import ErrorBoundary from '@/enhancers/ErrorBoundary'
+import WithStyle from '@/enhancers/withStyle'
+import type { PersistedState } from '@/store/store'
+import StoreProvider from '@/store/StoreProvider'
+import type { EmotionCache } from '@emotion/react'
 import type { NextPage } from 'next'
 import type { SSRConfig } from 'next-i18next'
 import { appWithTranslation } from 'next-i18next'
 import nextI18nextConfig from 'next-i18next.config'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import type { ReactElement, ReactNode } from 'react'
-import type { PersistedState } from '@/store/store'
-import { initializeStore, Provider } from '@/store/store'
-import PageWrapper from '@/components/Layout/PageWrapper'
-import WithStyle from '@/enhancers/withStyle'
 import Script from 'next/script'
+import type { ReactElement, ReactNode } from 'react'
 
-type InitialState = { initialState: Partial<PersistedState> }
+type InitialState = { initialState: PersistedState }
 
 type NextPageWithLayout<P> = NextPage<P> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -26,8 +26,6 @@ type AppPropsWithLayout<P> = AppProps<P> & {
 }
 
 const App = ({ Component, pageProps, serverEmotionCache }: AppPropsWithLayout<InitialState>) => {
-  const createStore = () => initializeStore(pageProps.initialState)
-
   const getLayout = Component.getLayout ?? ((page) => page)
 
   return (
@@ -50,7 +48,7 @@ const App = ({ Component, pageProps, serverEmotionCache }: AppPropsWithLayout<In
         }}
       />
       <ErrorBoundary>
-        <Provider createStore={createStore}>
+        <StoreProvider {...pageProps.initialState}>
           <WithStyle serverEmotionCache={serverEmotionCache}>
             <Head>
               <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -58,7 +56,7 @@ const App = ({ Component, pageProps, serverEmotionCache }: AppPropsWithLayout<In
             <PageWrapper>{getLayout(<Component {...pageProps} />)}</PageWrapper>
             <InstallPWA />
           </WithStyle>
-        </Provider>
+        </StoreProvider>
       </ErrorBoundary>
     </>
   )

@@ -1,11 +1,10 @@
-import Cookies from 'js-cookie'
-import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import type { ThemeMode } from '@/theme/type'
-import type { StoreApi } from 'zustand'
-import create from 'zustand'
-import createContext from 'zustand/context'
+import Cookies from 'js-cookie'
+import { createContext, useContext } from 'react'
+import { createStore, useStore as useZustandStore } from 'zustand'
 import type { StateStorage } from 'zustand/middleware'
 import { persist } from 'zustand/middleware'
+import { createPersistStorage } from './createPersistStorage'
 
 export const storageName = 'wishwork-boilerplate'
 
@@ -16,7 +15,7 @@ export const initialState: PersistedState = {
 }
 export const initialStateJSON = JSON.stringify(initialState)
 
-const CookieStorage: StateStorage = {
+export const CookieStorage = {
   getItem: (name) => {
     return Cookies.get(name) ?? null
   },
@@ -26,7 +25,7 @@ const CookieStorage: StateStorage = {
   removeItem: (name) => {
     return Cookies.remove(name)
   },
-}
+} satisfies StateStorage
 
 export interface PersistedState {
   loading: boolean
@@ -38,16 +37,25 @@ interface StoreInterface extends PersistedState {
   toggleLoading: () => void
   toggleTheme: () => void
   setTheme: (themeMode: ThemeMode) => void
+  logout: () => void
 }
 
-const zustandContext = createContext<StoreApi<StoreInterface>>()
+export type Store = ReturnType<typeof initializeStore>
+
+const zustandContext = createContext<Store | null>(null)
 
 export const Provider = zustandContext.Provider
 
-export const useStore = zustandContext.useStore
+export const useStore = <T>(selector: (state: StoreInterface) => T) => {
+  const store = useContext(zustandContext)
+
+  if (!store) throw new Error('Store is missing the provider')
+
+  return useZustandStore(store, selector)
+}
 
 export const initializeStore = (preloadedState: Partial<PersistedState>) => {
-  return create<StoreInterface>()(
+  return createStore<StoreInterface>()(
     persist(
       (set) => ({
         ...initialState,
@@ -67,14 +75,12 @@ export const initializeStore = (preloadedState: Partial<PersistedState>) => {
             ...state,
             theme,
           })),
+        logout: () => set((state) => ({ ...state, token: undefined })),
       }),
       {
         name: storageName,
-        getStorage: () => CookieStorage,
+        storage: createPersistStorage(() => CookieStorage),
         partialize: (state) => ({ loading: state.loading, theme: state.theme, token: state.token }),
-        serialize: (state) => compressToEncodedURIComponent(JSON.stringify(state)),
-        deserialize: (str) =>
-          JSON.parse(decompressFromEncodedURIComponent(str) ?? initialStateJSON),
       }
     )
   )

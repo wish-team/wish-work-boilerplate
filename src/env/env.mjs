@@ -11,10 +11,9 @@ const formatErrors = (
     .filter(Boolean)
 
 export const envSchema = z.object({
-  NEXT_PUBLIC_GOOGLE_ANALYTICS: z.string(),
-  NEXT_PUBLIC_GOOGLE_ANALYTICS_UNIVERSAL: z.string(),
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string(),
+  NEXT_PUBLIC_FACEBOOK_PIXEL_ID: z.string(),
   BASE_URL: z.string(),
-  DECRYPTION_SECRET: z.string(),
   ENV_VALIDATION: z.literal('true').optional(),
 })
 

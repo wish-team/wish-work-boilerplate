@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import createEmotionServer from '@emotion/server/create-instance'
 import type { AvailableLocales } from '@/enhancers/configs/availableLocales'
 import { availableLocales } from '@/enhancers/configs/availableLocales'
@@ -20,6 +21,16 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon/favicon.ico" />
 
           <link href={'/fonts/Ridley/style.css'} rel="stylesheet" />
+
+          <noscript>
+            <img
+              alt="facebook pixel"
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}&ev=PageView&noscript=1`}
+            />
+          </noscript>
         </Head>
         <body>
           <Main />

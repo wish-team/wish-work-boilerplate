@@ -3,6 +3,7 @@ import InstallPWA from '@/components/PWA/InstallPWA'
 import ErrorBoundary from '@/enhancers/ErrorBoundary'
 import { fbpPageview } from '@/enhancers/fpixel'
 import { gaPageview } from '@/enhancers/gtag'
+import ReactQueryProvider from '@/enhancers/reactQueryProvider'
 import WithStyle from '@/enhancers/withStyle'
 import type { PersistedState } from '@/store/store'
 import StoreProvider from '@/store/StoreProvider'
@@ -20,16 +21,20 @@ import { useEffect } from 'react'
 
 type InitialState = { initialState: PersistedState }
 
-type NextPageWithLayout<P> = NextPage<P> & {
+type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 
 type AppPropsWithLayout<P> = AppProps<P> & {
   serverEmotionCache: EmotionCache
-  Component: NextPageWithLayout<P>
+  Component: NextPageWithLayout
 }
 
-const App = ({ Component, pageProps, serverEmotionCache }: AppPropsWithLayout<InitialState>) => {
+const App = ({
+  Component,
+  pageProps: { initialState, dehydratedState, ...pageProps },
+  serverEmotionCache,
+}: AppPropsWithLayout<InitialState & { dehydratedState: unknown }>) => {
   const getLayout = Component.getLayout ?? ((page) => page)
 
   const router = useRouter()
@@ -83,21 +88,22 @@ const App = ({ Component, pageProps, serverEmotionCache }: AppPropsWithLayout<In
         }}
       />
       <ErrorBoundary>
-        <StoreProvider {...pageProps.initialState}>
-          <WithStyle serverEmotionCache={serverEmotionCache}>
-            <Head>
-              <meta name="viewport" content="initial-scale=1, width=device-width" />
-            </Head>
-            <PageWrapper>{getLayout(<Component {...pageProps} />)}</PageWrapper>
-            <InstallPWA />
-          </WithStyle>
-        </StoreProvider>
+        <ReactQueryProvider dehydratedState={dehydratedState}>
+          <StoreProvider {...initialState}>
+            <WithStyle serverEmotionCache={serverEmotionCache}>
+              <Head>
+                <meta name="viewport" content="initial-scale=1, width=device-width" />
+              </Head>
+              <PageWrapper>{getLayout(<Component {...pageProps} />)}</PageWrapper>
+              <InstallPWA />
+            </WithStyle>
+          </StoreProvider>
+        </ReactQueryProvider>
       </ErrorBoundary>
     </>
   )
 }
 
-export default appWithTranslation<AppPropsWithLayout<InitialState & SSRConfig>>(
-  App,
-  nextI18nextConfig
-)
+export default appWithTranslation<
+  AppPropsWithLayout<InitialState & SSRConfig & { dehydratedState: unknown }>
+>(App, nextI18nextConfig)

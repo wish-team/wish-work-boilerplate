@@ -1,6 +1,6 @@
 import Cookie from 'cookie'
 import type { IncomingHttpHeaders } from 'http'
-import { decompressFromEncodedURIComponent } from 'lz-string'
+import { decompress } from 'lz-string'
 import type { PersistedState } from './store'
 import { initialState, storageName } from './store'
 
@@ -17,9 +17,7 @@ const getInitialState = (
       return parsedInitialState
     }
 
-    const state = JSON.parse(
-      decompressFromEncodedURIComponent(cookies[storageName]) ?? JSON.stringify(parsedInitialState)
-    )
+    const state = JSON.parse(decompress(cookies[storageName]) ?? JSON.stringify(parsedInitialState))
 
     return state && state.state ? { ...state.state, ...overrideState } : parsedInitialState
   }

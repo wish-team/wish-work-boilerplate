@@ -1,32 +1,39 @@
 ## Wish Work NextJS Boilerplate
+
 > This boilerplate has been developed with the aim of developing faster, easier and maintainable web platforms.
 
-## Overview 
+## Overview
+
 The core libraries which has been used in the boilerplate has been scheme below.
-However, there are multiple micro-libraries from which software engineers could leverage. 
+However, there are multiple micro-libraries from which software engineers could leverage.
 
 - MUI
 - NEXTJS
 - I18N
-- REDUX Toolkit
+- Zustand
 - ESLINT
 - FRAMER MOTION
 
-## Structure
-We has been breaking down all the materials and provide a document in each folder, so in this section we just describe the main structure and folders
+## Node.js Version
 
-    .
-    ├── components       # mid-level components like form control
-    ├── enhancers        # Wrappers and hooks
-    ├── pages            # Routes and pages ( check out next js doc )
-    ├── public           # All images and locales
-    ├── redux            # Redux ecosystem, actions, reducers and store
-    ├── theme            # All the materials related to MUI except wrapers like ThemeProvider
-    ├── .env          
-    ├── .eslintrc.json             
-    ├── .gitignore      
-    ├── i18n.js           
-    ├── next-env.d.ts   
-    ├── next.config.js  
-    ├── package.json                 
-    └── tsconfig.json   
+You can find the recommended Node.js version in `.npmrc` file.
+
+```bash
+use-node-version=16.20.0
+```
+
+you can set your Node.js to that version using whatever Node.js version manager you use but We recommend using pnpm to automate this process.
+
+## PNPM as Node.js version manager
+
+first uninstall Node.js if you already have it installed on your system then use one of the standalone scripts from [this page](https://pnpm.io/installation#using-a-standalone-script)
+
+now you can use the following command to install the latest lts version.
+
+```bash
+pnpm env use --global lts
+```
+
+Find out more about [pnpm env commands](https://pnpm.io/cli/env)
+
+That's it. now in whatever project you're working, pnpm automatically reads `.npmrc` file and uses the right Node.js version.

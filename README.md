@@ -19,7 +19,7 @@ However, there are multiple micro-libraries from which software engineers could 
 You can find the recommended Node.js version in `.npmrc` file.
 
 ```bash
-use-node-version=16.20.0
+use-node-version=18.16.0
 ```
 
 you can set your Node.js to that version using whatever Node.js version manager you use but We recommend using pnpm to automate this process.
@@ -36,4 +36,4 @@ pnpm env use --global lts
 
 Find out more about [pnpm env commands](https://pnpm.io/cli/env)
 
-That's it. now in whatever project you're working, pnpm automatically reads `.npmrc` file and uses the right Node.js version.
+That's it. now in whatever project you're working, pnpm automatically reads `.npmrc` file and uses the right Node.js version without changing the global version.

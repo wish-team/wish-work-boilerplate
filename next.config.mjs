@@ -1,13 +1,6 @@
 process.env.ENV_VALIDATION === 'true' && (await import('./src/env/env.mjs'))
 
-import NEXT_PWA from 'next-pwa'
 import BUNDLE_ANALYZER from '@next/bundle-analyzer'
-
-const withPWA = NEXT_PWA({
-  dest: 'public',
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
-})
 
 const withBundleAnalyzer = BUNDLE_ANALYZER({
   enabled: process.env.ANALYZE === 'true',
@@ -37,4 +30,4 @@ const nextConfig = {
   },
 }
 
-export default withBundleAnalyzer(withPWA(nextConfig))
+export default withBundleAnalyzer(nextConfig)

@@ -1,5 +1,5 @@
 import type { PersistStorage, StorageValue } from 'zustand/middleware'
-import { compress, decompress } from 'lz-string'
+import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 import type { CookieStorage, PersistedState } from './store'
 import { initialStateJSON } from './store'
 
@@ -12,9 +12,12 @@ export const createPersistStorage = (getStorage: () => StateStorage) => {
     getItem: (name) => {
       const value = storage.getItem(name) ?? initialStateJSON
 
-      return JSON.parse(decompress(value) ?? initialStateJSON) as StorageValue<PersistedState>
+      return JSON.parse(
+        decompressFromEncodedURIComponent(value) ?? initialStateJSON
+      ) as StorageValue<PersistedState>
     },
-    setItem: (name, newValue) => storage.setItem(name, compress(JSON.stringify(newValue))),
+    setItem: (name, newValue) =>
+      storage.setItem(name, compressToEncodedURIComponent(JSON.stringify(newValue))),
     removeItem: (name) => storage.removeItem(name),
   }
 

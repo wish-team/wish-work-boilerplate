@@ -11,6 +11,10 @@ import i18nextConfig from './next-i18next.config.js'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   i18n: i18nextConfig.i18n,
+  reactStrictMode: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
   modularizeImports: {
     '@mui/material': {
       transform: '@mui/material/{{member}}',
@@ -18,15 +22,6 @@ const nextConfig = {
     '@mui/icons-material': {
       transform: '@mui/icons-material/{{member}}',
     },
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.tsx?$/,
-      use: ['@svgr/webpack'],
-    })
-
-    return config
   },
 }
 

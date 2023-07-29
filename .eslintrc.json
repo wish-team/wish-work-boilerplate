@@ -36,6 +36,18 @@
     "no-console": "warn",
     "no-alert": "warn",
     "@typescript-eslint/consistent-type-imports": "warn",
-    "@typescript-eslint/no-namespace": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "moment",
+        "message": "use Int API for date formatting"
+      },
+      {
+        "name": "react-hook-form",
+        "message": "You don't need this but if you think you do, make a case for it"
+      }
+    ]
   }
 }
